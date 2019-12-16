@@ -1,0 +1,10 @@
+C:\Users\rober\Desktop\LauncherMUdamned\GX.Builder\bin\Release\Update Maker.exe.config
+C:\Users\rober\Desktop\LauncherMUdamned\GX.Builder\bin\Release\Update Maker.exe
+C:\Users\rober\Desktop\LauncherMUdamned\GX.Builder\bin\Release\Update Maker.pdb
+C:\Users\rober\Desktop\LauncherMUdamned\GX.Builder\obj\Release\GXBuilder.csprojAssemblyReference.cache
+C:\Users\rober\Desktop\LauncherMUdamned\GX.Builder\obj\Release\Update.Maker.lForm.resources
+C:\Users\rober\Desktop\LauncherMUdamned\GX.Builder\obj\Release\Update.Maker.Properties.Resources.resources
+C:\Users\rober\Desktop\LauncherMUdamned\GX.Builder\obj\Release\GXBuilder.csproj.GenerateResource.cache
+C:\Users\rober\Desktop\LauncherMUdamned\GX.Builder\obj\Release\GXBuilder.csproj.CoreCompileInputs.cache
+C:\Users\rober\Desktop\LauncherMUdamned\GX.Builder\obj\Release\Update Maker.exe
+C:\Users\rober\Desktop\LauncherMUdamned\GX.Builder\obj\Release\Update Maker.pdb

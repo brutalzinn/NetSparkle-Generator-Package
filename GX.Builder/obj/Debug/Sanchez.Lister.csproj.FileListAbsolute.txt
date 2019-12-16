@@ -1,0 +1,7 @@
+Y:\Others Gamers\Source\Sanchez.Lister\obj\Debug\Sanchez.Lister.lForm.resources
+Y:\Others Gamers\Source\Sanchez.Lister\obj\Debug\Sanchez.Lister.Properties.Resources.resources
+Y:\Others Gamers\Source\Sanchez.Lister\obj\Debug\Sanchez.Lister.csproj.GenerateResource.Cache
+Y:\Others Gamers\Source\Sanchez.Lister\bin\Debug\Update Maker.exe
+Y:\Others Gamers\Source\Sanchez.Lister\bin\Debug\Update Maker.pdb
+Y:\Others Gamers\Source\Sanchez.Lister\obj\Debug\Update Maker.exe
+Y:\Others Gamers\Source\Sanchez.Lister\obj\Debug\Update Maker.pdb
