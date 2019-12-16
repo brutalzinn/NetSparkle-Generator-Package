@@ -86,6 +86,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.finder_directory = new System.Windows.Forms.RadioButton();
+            this.finder_file = new System.Windows.Forms.RadioButton();
+            this.finder_fixo = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menu_options.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -142,6 +146,7 @@
             this.dataGridView1.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.menu_options;
             this.dataGridView1.Location = new System.Drawing.Point(0, 38);
@@ -322,6 +327,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.finder_fixo);
+            this.tabPage1.Controls.Add(this.finder_file);
+            this.tabPage1.Controls.Add(this.finder_directory);
             this.tabPage1.Controls.Add(this.button_finder);
             this.tabPage1.Controls.Add(this.textBoxSearch);
             this.tabPage1.Controls.Add(this.button3);
@@ -608,11 +616,56 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Nome. EXE";
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(890, 431);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.TabIndex = 18;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // finder_directory
+            // 
+            this.finder_directory.AutoSize = true;
+            this.finder_directory.Location = new System.Drawing.Point(519, 12);
+            this.finder_directory.Name = "finder_directory";
+            this.finder_directory.Size = new System.Drawing.Size(62, 17);
+            this.finder_directory.TabIndex = 18;
+            this.finder_directory.TabStop = true;
+            this.finder_directory.Text = "diretório";
+            this.finder_directory.UseVisualStyleBackColor = true;
+            // 
+            // finder_file
+            // 
+            this.finder_file.AutoSize = true;
+            this.finder_file.Location = new System.Drawing.Point(439, 12);
+            this.finder_file.Name = "finder_file";
+            this.finder_file.Size = new System.Drawing.Size(61, 17);
+            this.finder_file.TabIndex = 19;
+            this.finder_file.TabStop = true;
+            this.finder_file.Text = "Arquivo";
+            this.finder_file.UseVisualStyleBackColor = true;
+            // 
+            // finder_fixo
+            // 
+            this.finder_fixo.AutoSize = true;
+            this.finder_fixo.Location = new System.Drawing.Point(380, 12);
+            this.finder_fixo.Name = "finder_fixo";
+            this.finder_fixo.Size = new System.Drawing.Size(41, 17);
+            this.finder_fixo.TabIndex = 20;
+            this.finder_fixo.TabStop = true;
+            this.finder_fixo.Text = "fixo";
+            this.finder_fixo.UseVisualStyleBackColor = true;
+            // 
             // principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 512);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabControl1);
             this.MainMenuStrip = this.menuStrip1;
@@ -697,6 +750,10 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button_finder;
         private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.RadioButton finder_file;
+        private System.Windows.Forms.RadioButton finder_directory;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton finder_fixo;
     }
 }
 

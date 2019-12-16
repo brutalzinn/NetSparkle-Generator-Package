@@ -15,6 +15,7 @@ using MadMilkman.Ini;
 using System.Drawing;
 using System.Net;
 using System.Data;
+using System.Linq;
 
 namespace Update.Maker
 {
@@ -193,7 +194,8 @@ namespace Update.Maker
 
         private void UpdateResult(object Data)
         {
-            if(!dataGridView1.IsDisposed)
+           
+            if (!dataGridView1.IsDisposed)
             {
                 var result = Data.ToString().Replace(@"\", @"/").Split('|');
 
@@ -212,22 +214,22 @@ namespace Update.Maker
                         //Debug.WriteLine("DEBUG: " + Application.StartupPath);
                         //string result_teste = result[0].Replace((Application.StartupPath + @"\update\").Replace(@"\",@"/"),"");
                         dtSales.Rows.Add(Globals.contagem_files++, Path.GetFileName(result[0]), result[0], result[2],result[1]);
-
+                       
 
                     }
 
 
+                  
 
 
 
 
-                    
 
 
 
-                    
+
                 }
-                dataGridView1.DataSource = dataGridView1;
+ 
 
             }
         }
@@ -456,6 +458,7 @@ namespace Update.Maker
             dtSales.Columns.Add("diretorio", typeof(string));
             dtSales.Columns.Add("size", typeof(string));
             dtSales.Columns.Add("crc", typeof(string));
+            dataGridView1.DataSource = dtSales;
         }
 
         private void Button1_Click_1(object sender, EventArgs e)
@@ -639,7 +642,7 @@ var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["dir
 
 
             }
-            dataGridView1.DataSource = dtSales;
+         
 
         }
         private void MOD_LOAD_LIST()
@@ -678,8 +681,8 @@ var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["dir
 
         private void Arquivo_context_add_menu_Click(object sender, EventArgs e)
         {
+       
 
-        
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
    
             openFileDialog1.CheckFileExists = true;
@@ -744,6 +747,7 @@ var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["dir
 
                             newDataRow.Cells[3].Value = resultinfo[2];
                             newDataRow.Cells[4].Value = resultinfo[1];
+                     
                             break;
                             //log("Arquivo:" + Path.GetFileName(arquivo) + " Foi atualizado. " + "crc" + dataGridViewRow.Cells["crc"].Value + "para" + GetHash(arquivo));
                         }
@@ -758,7 +762,7 @@ var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["dir
 
 
 
-                       
+       
 
 
 
@@ -778,14 +782,14 @@ var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["dir
         }
         private void RemovearquivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
 
+            
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 DataGridViewSelectedRowCollection row = dataGridView1.SelectedRows;
                 Globals.contagem_files = dataGridView1.SelectedRows[0].Index;
                 // taking the index of the selected rows and removing/
-                dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                dtSales.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
             }
             else
             {  //optional    
@@ -1103,15 +1107,60 @@ Globals.contagem_files++;
 
         private void Button2_Click_1(object sender, EventArgs e)
         {
-            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("arquivo = '{0}'", textBoxSearch.Text);
+
+            RadioButton radioBtn = this.Controls.OfType<RadioButton>()
+                                        .Where(x => x.Checked).FirstOrDefault();
+            if (radioBtn != null)
+            {
+                switch (radioBtn.Name)
+                {
+                    case "finder_fixo":
+                        (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("arquivo = '{0}'", textBoxSearch.Text);
+
+                        break;
+                    case "finder_file":
+                        dtSales.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "arquivo", textBoxSearch.Text);
+                        break;
+
+                    case "finder_directory":
+                        dtSales.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "diretorio", textBoxSearch.Text);
+                        break;
+
+
+
+                }
+
+            }
 
 
         }
 
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            dtSales.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "arquivo", textBoxSearch.Text);
+
+
+            if (finder_fixo.Checked)
+            {
+                (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("arquivo = '{0}'", textBoxSearch.Text);
+
+            }
+            else if (finder_file.Checked)
+            {
+                dtSales.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "arquivo", textBoxSearch.Text);
+
+            }
+            else if (finder_directory.Checked)
+            {
+                dtSales.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "diretorio", textBoxSearch.Text);
+
+            }
+                 
+
+
+
+                }
+
+            }
 
         }
-    }
-}
+    
