@@ -1,1 +1,2 @@
-launcher_profiles.json.rar|-2110603803
+OptiFine_1.12.2_HD_U_F5_MOD.jar|-733062095
+LagGoggles-FAT-1.12.2-4.9.jar|1973552370

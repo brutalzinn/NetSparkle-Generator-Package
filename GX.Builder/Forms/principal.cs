@@ -478,7 +478,7 @@ namespace Update.Maker
 
             if(Convert.ToString(dataGridViewRow.Cells["diretorio"].Value) != "")
                 {
-                  if(  isRaR(Convert.ToString(dataGridViewRow.Cells["diretorio"].Value)) == false){
+                  if(  File.Exists(Convert.ToString(dataGridViewRow.Cells["diretorio"].Value) + ".rar") == false ){
 
 var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["diretorio"].Value)  };
                RarFiles(Convert.ToString(dataGridViewRow.Cells["diretorio"].Value)  + ".rar" , files_rar);
