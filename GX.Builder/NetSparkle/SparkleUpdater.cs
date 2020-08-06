@@ -1,23 +1,28 @@
 using System;
 using System.ComponentModel;
 using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using NetSparkleUpdater.Interfaces;
 using System.IO;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using NetSparkleUpdater.Enums;
+using System.Net.Http;
 using NetSparkleUpdater.Events;
 using System.Collections.Generic;
 using NetSparkleUpdater.Downloaders;
 using NetSparkleUpdater.Configurations;
+using NetSparkleUpdater.SignatureVerifiers;
 using NetSparkleUpdater.AppCastHandlers;
 using NetSparkleUpdater.AssemblyAccessors;
 using System.Text;
+using System.Globalization;
+using System.Runtime.InteropServices;
 #if NETSTANDARD
 using System.Runtime.InteropServices;
 #endif
-
 namespace NetSparkleUpdater
 {
     /// <summary>

@@ -1,4 +1,5 @@
 ﻿using NetSparkleUpdater.Interfaces;
+using Newtonsoft.Json;
 #if NETFRAMEWORK
 using Newtonsoft.Json;
 #endif

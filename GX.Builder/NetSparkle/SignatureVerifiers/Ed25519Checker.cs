@@ -4,6 +4,8 @@ using System.IO;
 using System.Reflection;
 using NetSparkleUpdater.Enums;
 using NetSparkleUpdater.Interfaces;
+using Org.BouncyCastle.Crypto.Signers;
+using Org.BouncyCastle.Crypto.Parameters;
 
 namespace NetSparkleUpdater.SignatureVerifiers
 {
