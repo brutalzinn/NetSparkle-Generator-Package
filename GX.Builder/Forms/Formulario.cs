@@ -24,7 +24,7 @@ namespace Update.Maker.Forms
 
         }
         public int CurrentItem { get; set; }
-        public void CreateTextBox(int id, string title, string file, string releasenote, string link, string version, string shortversion, string system, string type, string criticalupdate)
+        public void CreateTextBox(int id, string title, string file, string releasenote, string link, string version, string shortversion, string system, string type, string criticalupdate,string changelogpath, string changelogurl,bool isprefixed)
         {
             CurrentItem = id;
             file_textbox.Text = file;
@@ -37,7 +37,9 @@ namespace Update.Maker.Forms
             type_textbox.Text = type;
             criticalupdate_textbox.Text = criticalupdate;
 
-
+            changelogfile_textbox.Text = changelogpath;
+            changelog_url_textbox.Text = changelogurl;
+            PrefixVersion_checkbox.Checked = isprefixed;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -68,8 +70,10 @@ namespace Update.Maker.Forms
 
                     newDataRow.Cells[8].Value = type_textbox.Text;
 
-                    newDataRow.Cells[9].Value = criticalupdate_textbox;
-
+                    newDataRow.Cells[9].Value = criticalupdate_textbox.Text;
+                    newDataRow.Cells[10].Value = changelogfile_textbox.Text;
+                    newDataRow.Cells[11].Value = criticalupdate_textbox.Text;
+                    newDataRow.Cells[12].Value = PrefixVersion_checkbox.Enabled;
                     break;
                 }
 

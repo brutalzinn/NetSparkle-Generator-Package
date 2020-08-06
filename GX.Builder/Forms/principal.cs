@@ -24,6 +24,7 @@ using System.Xml;
 using NetSparkleUpdater.Interfaces;
 using System.Xml.Linq;
 using Update.Maker.Forms;
+using System.Text.RegularExpressions;
 
 namespace Update.Maker
 {
@@ -222,7 +223,7 @@ namespace Update.Maker
                         Debug.WriteLine("OLD : " + result[0]);
                         //Debug.WriteLine("DEBUG: " + Application.StartupPath);
                         //string result_teste = result[0].Replace((Application.StartupPath + @"\update\").Replace(@"\",@"/"),"");
-                        dtSales.Rows.Add(Globals.contagem_files++, Path.GetFileName(result[0]), result[0], result[2], result[1]);
+                        dtSales.Rows.Add(Globals.contagem_files++, Path.GetFileName(result[0]), result[0], result[2], result[1],"1.0.0.0", Path.GetFileName(result[0]),"","", "", "" ,"", "", "", "", false);
 
 
                     }
@@ -304,7 +305,7 @@ namespace Update.Maker
 
 
 
-                        CreateXML(dataGridViewRow.Cells["file"].Value.ToString(), textBox1.Text, true, "1.0", new FileInfo(dataGridViewRow.Cells["directory"].Value.ToString()), "windows", "", "google.com.br");
+                        CreateXML(dataGridViewRow.Cells["file"].Value.ToString(), textBox1.Text, Convert.ToBoolean(dataGridViewRow.Cells["isprefixed"].Value), dataGridViewRow.Cells["version"].Value.ToString(), new FileInfo(dataGridViewRow.Cells["directory"].Value.ToString()), dataGridViewRow.Cells["systemos"].Value.ToString(), dataGridViewRow.Cells["changelogfilepath"].Value.ToString(), dataGridViewRow.Cells["changelogurl"].Value.ToString());
                         //fileDifferent.WriteLine("[" + (Globals.contagem_files) + "]");
                         //fileDifferent.WriteLine("caminho=" + Convert.ToString(dataGridViewRow.Cells["diretorio"].Value).Replace(path_to_remove + "/update/", string.Empty));
                         //fileDifferent.WriteLine("crc32=" + Convert.ToString(dataGridViewRow.Cells["crc"].Value));
@@ -357,18 +358,18 @@ namespace Update.Maker
         }
 
   public static List<AppCastItem> Items = new List<AppCastItem>();
+        public static List<AppCastItem> Items_to_write= new List<AppCastItem>();
         public  void CreateXML(string productName, string BaseUrl, bool PrefixVersion , string version, FileInfo fileInfo, string operationsystem, string changelogpath,string changlogurl)
         {
-
+           
 
             try
             {
-             
 
-              
 
-                var usesChangelogs = !string.IsNullOrWhiteSpace(changelogpath) && Directory.Exists(changelogpath);
                 var productVersion = version;
+                var usesChangelogs = !string.IsNullOrWhiteSpace(changelogpath) && Directory.Exists(changelogpath);
+               
                 var itemTitle = string.IsNullOrWhiteSpace(productName) ? productVersion : productName + " " + productVersion;
                 var remoteUpdateFile = $"{BaseUrl}/{(PrefixVersion ? $"{version}/" : "")}{HttpUtility.UrlEncode(fileInfo.Name)}";
 
@@ -410,7 +411,7 @@ namespace Update.Maker
                     }
                 }
 
-                Items.Add(item);
+                Items_to_write.Add(item);
               
                
                
@@ -424,17 +425,31 @@ namespace Update.Maker
 
             }
         }
-    
-       public void XmlGenerator()
+        static string GetVersionFromName(FileInfo fileInfo)
         {
-            var appcastXmlDocument = XMLAppCast.GenerateAppCastXml(Items, textBox1.Text );
+            var regexPattern = @"\d+(\.\d+)+";
+            var regex = new Regex(regexPattern);
 
+            var match = regex.Match(fileInfo.FullName);
+
+            return match.Captures[match.Captures.Count - 1].Value; // get the numbers at the end of the string incase the app is something like 1.0application1.0.0.dmg
+        }
+
+        static string GetVersionFromAssembly(FileInfo fileInfo)
+        {
+            return FileVersionInfo.GetVersionInfo(fileInfo.FullName).ProductVersion;
+        }
+        public void XmlGenerator()
+        {
             var appcastFileName = Path.Combine(Application.StartupPath + @"\output\", "appcast.xml");
-
             if (File.Exists(appcastFileName))
             {
                 File.Delete(appcastFileName);
             }
+            var appcastXmlDocument = XMLAppCast.GenerateAppCastXml(Items_to_write, textBox1.Text );
+
+
+           
             var dirName = Path.GetDirectoryName(appcastFileName);
 
             if (!Directory.Exists(dirName))
@@ -475,12 +490,19 @@ namespace Update.Maker
                 Console.WriteLine("Skipped generating signature.  Generate keys with --generate-keys", Color.Red);
                 Environment.Exit(1);
             }
+            Items_to_write.Clear();
         }
 
         private void LForm_Load(object sender, EventArgs e)
         {
-         
-       
+            LoadDataGriedView();
+
+
+
+        }
+        public void LoadDataGriedView()
+        {
+
             dtSales.Columns.Add("id", typeof(string));
             dtSales.Columns.Add("file", typeof(string));
             dtSales.Columns.Add("directory", typeof(string));
@@ -494,9 +516,12 @@ namespace Update.Maker
             dtSales.Columns.Add("systemos", typeof(string));
             dtSales.Columns.Add("type", typeof(string));
             dtSales.Columns.Add("crtiticalupdate", typeof(string));
+
+            dtSales.Columns.Add("changelogfilepath", typeof(string));
+            dtSales.Columns.Add("changelogurl", typeof(string));
+            dtSales.Columns.Add("isprefixed", typeof(string));
             dataGridView1.DataSource = dtSales;
         }
-
         private void Button1_Click_1(object sender, EventArgs e)
         {
 
@@ -736,13 +761,13 @@ var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["dir
 
             if (dr == DialogResult.Yes)
             {
-                dataGridView1.Rows.Clear();
+                dtSales.Clear();
+                dataGridView1.Refresh();
+              
 
 
-                // Do something
+
             }
-
-
         }
 
         private void DesenvolvidoPorRobertinhonetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1055,7 +1080,7 @@ Globals.contagem_files++;
 
                 Formulario teste = new Formulario();
               
-                    teste.CreateTextBox(Convert.ToInt32(newDataRow.Cells[0].Value),newDataRow.Cells[1].Value.ToString(), newDataRow.Cells[2].Value.ToString(), newDataRow.Cells[3].Value.ToString(), newDataRow.Cells[4].Value.ToString(), newDataRow.Cells[5].Value.ToString(), newDataRow.Cells[6].Value.ToString(), newDataRow.Cells[7].Value.ToString(), newDataRow.Cells[8].Value.ToString(), newDataRow.Cells[9].Value.ToString());
+                    teste.CreateTextBox(Convert.ToInt32(newDataRow.Cells[0].Value),newDataRow.Cells[1].Value.ToString(), newDataRow.Cells[2].Value.ToString(), newDataRow.Cells[3].Value.ToString(), newDataRow.Cells[4].Value.ToString(), newDataRow.Cells[5].Value.ToString(), newDataRow.Cells[6].Value.ToString(), newDataRow.Cells[7].Value.ToString(), newDataRow.Cells[8].Value.ToString(), newDataRow.Cells[9].Value.ToString(), newDataRow.Cells[10].Value.ToString(), newDataRow.Cells[11].Value.ToString(), Convert.ToBoolean(newDataRow.Cells[12].Value));
              
                 
                 teste.ShowDialog();
