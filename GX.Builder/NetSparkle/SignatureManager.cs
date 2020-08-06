@@ -1,11 +1,5 @@
 using System;
 using System.IO;
-using System.Runtime.CompilerServices;
-using Org.BouncyCastle.Crypto;
-using Org.BouncyCastle.Crypto.Generators;
-using Org.BouncyCastle.Crypto.Parameters;
-using Org.BouncyCastle.Crypto.Signers;
-using Org.BouncyCastle.Security;
 
 namespace NetSparkleUpdater.AppCastGenerator
 {

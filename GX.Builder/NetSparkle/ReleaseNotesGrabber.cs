@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
@@ -8,9 +7,6 @@ using System.Threading;
 using System.IO;
 using NetSparkleUpdater.Enums;
 using System.Net;
-using System.Diagnostics;
-using System.Web.UI.HtmlControls;
-using System.Security.Permissions;
 
 namespace NetSparkleUpdater
 {
@@ -18,8 +14,8 @@ namespace NetSparkleUpdater
     /// Grabs release notes formatted as Markdown from the server and allows you to view them as HTML
     /// </summary>
     /// 
-  
-   
+
+
     public class ReleaseNotesGrabber
     {
         /// <summary>

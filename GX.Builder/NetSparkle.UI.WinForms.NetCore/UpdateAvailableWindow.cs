@@ -8,7 +8,7 @@ using System.Threading;
 using System.Collections.Generic;
 using NetSparkleUpdater.Events;
 using System.Security.Permissions;
-using NickAc.ModernUIDoneRight.Objects;
+
 
 namespace NetSparkleUpdater.UI.WinForms
 {

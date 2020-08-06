@@ -1,14 +1,9 @@
-﻿using NetSparkleUpdater.AssemblyAccessors;
-using NetSparkleUpdater.Interfaces;
-using Newtonsoft.Json;
+﻿using NetSparkleUpdater.Interfaces;
 #if NETFRAMEWORK
 using Newtonsoft.Json;
 #endif
 using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
-using System.Text;
 #if NETSTANDARD
 using System.Text.Json;
 #endif

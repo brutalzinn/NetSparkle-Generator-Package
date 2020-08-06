@@ -34,7 +34,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Update.Maker</RootNamespace>
     <AssemblyName>Update Maker</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

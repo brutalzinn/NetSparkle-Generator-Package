@@ -1,15 +1,9 @@
 using System;
-using System.Diagnostics;
 using System.Linq;
 using System.IO;
 using System.Reflection;
-using System.Security.Cryptography;
 using NetSparkleUpdater.Enums;
 using NetSparkleUpdater.Interfaces;
-
-using System.Text;
-using Org.BouncyCastle.Crypto.Signers;
-using Org.BouncyCastle.Crypto.Parameters;
 
 namespace NetSparkleUpdater.SignatureVerifiers
 {

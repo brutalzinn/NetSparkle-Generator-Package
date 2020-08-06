@@ -112,7 +112,7 @@ namespace Update.Maker
         {
             FileInfo fileInfo = new FileInfo(File);
 
-            return File + "|" + _signatureManager.VerifySignature(File) + "|" + fileInfo.Length;
+            return File + "|" + _signatureManager.GetSignatureForFile(File) + "|" + fileInfo.Length;
         }
         private ushort Crc16Ccitt(byte[] bytes)
         {

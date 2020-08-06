@@ -1,12 +1,7 @@
 using NetSparkleUpdater.AppCastGenerator;
-using Org.BouncyCastle.Crypto;
-using Org.BouncyCastle.Crypto.Generators;
-using Org.BouncyCastle.Crypto.Parameters;
-using Org.BouncyCastle.Security;
 using System;
 using System.IO;
 using System.Linq;
-using Xunit;
 
 namespace NetSparkle.Tests.AppCastGenerator
 {
