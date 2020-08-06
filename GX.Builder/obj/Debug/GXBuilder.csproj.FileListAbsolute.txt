@@ -155,12 +155,12 @@ C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-sur
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.UpdateAvailableWindow.zh-TW.resources
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\GXBuilder.csproj.GenerateResource.cache
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\GXBuilder.csproj.CoreCompileInputs.cache
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\GXBuilder.csprojAssemblyReference.cache
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\Update Maker.exe.config
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\Update.Maker.principal.resources
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\Update.Maker.Properties.Resources.resources
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\GXBuilder.csproj.GenerateResource.cache
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\GXBuilder.csproj.CoreCompileInputs.cache
-C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\GXBuilder.csprojAssemblyReference.cache
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\bin\Debug\Update Maker.exe.config
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\bin\Debug\Update Maker.exe
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\bin\Debug\Update Maker.pdb
@@ -169,6 +169,7 @@ C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerat
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\bin\Debug\Microsoft.Threading.Tasks.xml
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\bin\Debug\Nancy.xml
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\GXBuilder.csproj.Fody.CopyLocal.cache
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\GXBuilder.csproj.CopyComplete

@@ -17,10 +17,14 @@ using System.Net;
 using System.Data;
 using System.Linq;
 using NetSparkleUpdater.AppCastGenerator;
+using NetSparkleUpdater;
+using System.Web;
+using NetSparkleUpdater.AppCastHandlers;
+using System.Xml;
 
 namespace Update.Maker
 {
- 
+
     public partial class principal : Form
     {
         string file_path_launcher_update;
@@ -35,10 +39,10 @@ namespace Update.Maker
             InitializeComponent();
             Globals.principal = this;
 
-          
-           
+
+
         }
-       
+
         private void browseButton_Click(object sender, EventArgs e)
         {
             dtSales.Rows.Clear();
@@ -56,7 +60,7 @@ namespace Update.Maker
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-  
+
         }
 
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -84,15 +88,15 @@ namespace Update.Maker
         private void DisableButtons()
         {
             Progress.Value = 0;
-      //      Result.Clear();
-           // saveButton.Enabled   = false;
-         
+            //      Result.Clear();
+            // saveButton.Enabled   = false;
+
             browseButton.Enabled = false;
         }
 
         private void EnableButtons()
         {
-            saveButton.Enabled   = true;
+            saveButton.Enabled = true;
 
             browseButton.Enabled = true;
         }
@@ -192,36 +196,36 @@ namespace Update.Maker
                 }
             }
         }
-     
+
 
         private void UpdateResult(object Data)
         {
-           
+
             if (!dataGridView1.IsDisposed)
             {
                 var result = Data.ToString().Replace(@"\", @"/").Split('|');
 
 
 
-                if(Data.ToString() != "")
+                if (Data.ToString() != "")
                 {
 
 
 
-                    if(  isRaR(result[0]) == false){
+                    if (isRaR(result[0]) == false) {
 
-                    
+
                         //string result_filter = result[0].Replace(Application.StartupPath, "");
                         Debug.WriteLine("OLD : " + result[0]);
                         //Debug.WriteLine("DEBUG: " + Application.StartupPath);
                         //string result_teste = result[0].Replace((Application.StartupPath + @"\update\").Replace(@"\",@"/"),"");
-                        dtSales.Rows.Add(Globals.contagem_files++, Path.GetFileName(result[0]), result[0], result[2],result[1]);
-                       
+                        dtSales.Rows.Add(Globals.contagem_files++, Path.GetFileName(result[0]), result[0], result[2], result[1]);
+
 
                     }
 
 
-                  
+
 
 
 
@@ -231,7 +235,7 @@ namespace Update.Maker
 
 
                 }
- 
+
 
             }
         }
@@ -249,16 +253,16 @@ namespace Update.Maker
 
 
 
-                    
-
-                        //string result_filter = result[0].Replace(Application.StartupPath, "");
-                        Debug.WriteLine("OLD : " + result[0]);
-                        //Debug.WriteLine("DEBUG: " + Application.StartupPath);
-                        //string result_teste = result[0].Replace((Application.StartupPath + @"\update\").Replace(@"\",@"/"),"");
-                        dataGridView2.Rows.Add(Path.GetFileName(result[0]), result[1]);
 
 
-                    
+                    //string result_filter = result[0].Replace(Application.StartupPath, "");
+                    Debug.WriteLine("OLD : " + result[0]);
+                    //Debug.WriteLine("DEBUG: " + Application.StartupPath);
+                    //string result_teste = result[0].Replace((Application.StartupPath + @"\update\").Replace(@"\",@"/"),"");
+                    dataGridView2.Rows.Add(Path.GetFileName(result[0]), result[1]);
+
+
+
 
 
 
@@ -278,7 +282,7 @@ namespace Update.Maker
 
             return (f.EndsWith(".rar", StringComparison.OrdinalIgnoreCase));
 
-            
+
 
         }
         private int ComputeProgress(int Percent)
@@ -291,7 +295,7 @@ namespace Update.Maker
             if (Percent < 0 || Percent > 100)
                 return;
 
-            if(!Progress.IsDisposed)
+            if (!Progress.IsDisposed)
             {
                 Progress.Value = Percent;
             }
@@ -303,7 +307,7 @@ namespace Update.Maker
                 return;
 
             //Result.Text = Result.Text.Replace(Remove, string.Empty);
-        
+
 
         }
 
@@ -311,13 +315,13 @@ namespace Update.Maker
         {
             //if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             //{
-             DisableButtons();
+            DisableButtons();
             path_to_remove = Application.StartupPath.Replace(@"\", "/");//folderBrowserDialog.SelectedPath.Replace(@"\", "/");
 
-                if(!backgroundWorker.IsBusy)
-                {
-                    backgroundWorker.RunWorkerAsync(Application.StartupPath + @"\update");
-                }
+            if (!backgroundWorker.IsBusy)
+            {
+                backgroundWorker.RunWorkerAsync(Application.StartupPath + @"\update");
+            }
             //}
         }
 
@@ -325,46 +329,46 @@ namespace Update.Maker
         {
             //saveFileDialog.FileName = "update.muonline";
             //saveFileDialog.Filter = "Text files (*.txt)|*.txt|Every file (*.*)|*.*";
-          
+
             //if (saveFileDialog.ShowDialog() == DialogResult.OK)
             //{
-             
-                using (System.IO.StreamWriter fileDifferent =
-           new System.IO.StreamWriter(Application.StartupPath + @"\update.survivalcrafters"))
-                {
+
+            using (System.IO.StreamWriter fileDifferent =
+       new System.IO.StreamWriter(Application.StartupPath + @"\update.survivalcrafters"))
+            {
                 fileDifferent.WriteLine("[UPDATE]");
                 fileDifferent.WriteLine("total=" + Globals.contagem_files);
                 Globals.contagem_files = 0;
                 path_to_remove = Application.StartupPath.Replace(@"\", "/");
                 foreach (DataGridViewRow dataGridViewRow in dataGridView1.Rows)
-                    {
+                {
 
 
 
 
-            
-                        // If the line doesn't contain the word 'Second', write the line to the file.
-                                  
-              
+
+                    // If the line doesn't contain the word 'Second', write the line to the file.
+
+
                     if (Convert.ToString(dataGridViewRow.Cells["diretorio"].Value) != "" && Convert.ToString(dataGridViewRow.Cells["crc"].Value) != "" && Convert.ToString(dataGridViewRow.Cells["size"].Value) != "")
                     {
 
-                        
+
                         fileDifferent.WriteLine("[" + (Globals.contagem_files) + "]");
                         fileDifferent.WriteLine("caminho=" + Convert.ToString(dataGridViewRow.Cells["diretorio"].Value).Replace(path_to_remove + "/update/", string.Empty));
-                    fileDifferent.WriteLine("crc32=" + Convert.ToString(dataGridViewRow.Cells["crc"].Value));
+                        fileDifferent.WriteLine("crc32=" + Convert.ToString(dataGridViewRow.Cells["crc"].Value));
                         fileDifferent.WriteLine("len=" + Convert.ToString(dataGridViewRow.Cells["size"].Value));
                         Globals.contagem_files++;
-                  //      Debug.WriteLine(Convert.ToString(dataGridViewRow.Cells["diretorio"].Value).Replace(path_to_remove + "/update/", string.Empty));
+                        //      Debug.WriteLine(Convert.ToString(dataGridViewRow.Cells["diretorio"].Value).Replace(path_to_remove + "/update/", string.Empty));
                     }
-                    
 
-                    }
+
                 }
+            }
 
 
-           File.Copy(Application.StartupPath + @"\update.survivalcrafters", Application.StartupPath + @"\listas\" + "update" + DateTime.Now.ToString("MM.dd.yyyy.HH.mm.ss") + ".survivalcrafters");
-    //        Debug.WriteLine(Application.StartupPath + @"\listas\" + "update" + DateTime.Now.ToString("MM.dd.yyyy.HH.mm.ss") + ".survivalcrafters");
+            File.Copy(Application.StartupPath + @"\update.survivalcrafters", Application.StartupPath + @"\listas\" + "update" + DateTime.Now.ToString("MM.dd.yyyy.HH.mm.ss") + ".survivalcrafters");
+            //        Debug.WriteLine(Application.StartupPath + @"\listas\" + "update" + DateTime.Now.ToString("MM.dd.yyyy.HH.mm.ss") + ".survivalcrafters");
             //}
         }
 
@@ -383,9 +387,9 @@ namespace Update.Maker
             using (System.IO.StreamWriter fileDifferent =
        new System.IO.StreamWriter(Application.StartupPath + @"\launcher\white_list.txt"))
             {
-  
- 
-              
+
+
+
                 foreach (DataGridViewRow dataGridViewRow in dataGridView2.Rows)
                 {
 
@@ -396,15 +400,15 @@ namespace Update.Maker
                     // If the line doesn't contain the word 'Second', write the line to the file.
 
 
-                    if (Convert.ToString(dataGridViewRow.Cells["Mod"].Value) != "" && Convert.ToString(dataGridViewRow.Cells["CRC_MOD"].Value) != "" )
+                    if (Convert.ToString(dataGridViewRow.Cells["Mod"].Value) != "" && Convert.ToString(dataGridViewRow.Cells["CRC_MOD"].Value) != "")
                     {
 
 
-                   
+
                         fileDifferent.WriteLine(Convert.ToString(dataGridViewRow.Cells["Mod"].Value + "|" + Convert.ToString(dataGridViewRow.Cells["CRC_MOD"].Value)));
 
-              
-                   
+
+
                         //      Debug.WriteLine(Convert.ToString(dataGridViewRow.Cells["diretorio"].Value).Replace(path_to_remove + "/update/", string.Empty));
                     }
 
@@ -413,7 +417,7 @@ namespace Update.Maker
             }
 
 
-          //  File.Copy(Application.StartupPath + @"\update.survivalcrafters", Application.StartupPath + @"\listas\" + "update" + DateTime.Now.ToString("MM.dd.yyyy.HH.mm.ss") + ".survivalcrafters");
+            //  File.Copy(Application.StartupPath + @"\update.survivalcrafters", Application.StartupPath + @"\listas\" + "update" + DateTime.Now.ToString("MM.dd.yyyy.HH.mm.ss") + ".survivalcrafters");
             //        Debug.WriteLine(Application.StartupPath + @"\listas\" + "update" + DateTime.Now.ToString("MM.dd.yyyy.HH.mm.ss") + ".survivalcrafters");
             //}
         }
@@ -437,29 +441,144 @@ namespace Update.Maker
         private void ChangeLine(string name)
         {
 
-            
 
-          
+
+
         }
         private static void Button1_Click(object sender, EventArgs e)
         {
-  
+
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-     
+
+
+        public void CreateXML(string productName, string BaseUrl, bool PrefixVersion , string version, FileInfo fileInfo, string operationsystem, string changelogpath,string changlogurl)
+        {
+
+
+            try
+            {
+             
+
+                var items = new List<AppCastItem>();
+
+                var usesChangelogs = !string.IsNullOrWhiteSpace(changelogpath) && Directory.Exists(changelogpath);
+                var productVersion = version;
+                var itemTitle = string.IsNullOrWhiteSpace(productName) ? productVersion : productName + " " + productVersion;
+                var remoteUpdateFile = $"{BaseUrl}/{(PrefixVersion ? $"{version}/" : "")}{HttpUtility.UrlEncode(fileInfo.Name)}";
+
+                // changelog stuff
+                var changelogFileName = productVersion + ".md";
+                var changelogPath = Path.Combine(changelogpath, changelogFileName);
+                var hasChangelogForFile = usesChangelogs && File.Exists(changelogPath);
+                var changelogSignature = "";
+
+                if (hasChangelogForFile)
+                {
+                    changelogSignature = _signatureManager.GetSignatureForFile(changelogPath);
+                }
+                //
+                var item = new AppCastItem()
+                {
+                    Title = itemTitle,
+                    DownloadLink = remoteUpdateFile,
+                    Version = productVersion,
+                    ShortVersion = productVersion.Substring(0, productVersion.LastIndexOf('.')),
+                    PublicationDate = fileInfo.CreationTime,
+                    UpdateSize = fileInfo.Length,
+                    Description = "",
+                    DownloadSignature = _signatureManager.KeysExist() ? _signatureManager.GetSignatureForFile(fileInfo) : null,
+                    OperatingSystemString = operationsystem,
+                    MIMEType = MimeTypes.GetMimeType(fileInfo.Name)
+                };
+
+                if (hasChangelogForFile)
+                {
+                    if (!string.IsNullOrWhiteSpace(changlogurl))
+                    {
+                        item.ReleaseNotesSignature = changelogSignature;
+                        item.ReleaseNotesLink = changlogurl + changelogFileName;
+                    }
+                    else
+                    {
+                        item.Description = File.ReadAllText(changelogPath);
+                    }
+                }
+
+                items.Add(item);
+            
+
+                var appcastXmlDocument = XMLAppCast.GenerateAppCastXml(items, productName);
+
+            var appcastFileName = Path.Combine(Application.StartupPath + @"\update\", "appcast.xml");
+
+            var dirName = Path.GetDirectoryName(appcastFileName);
+
+            if (!Directory.Exists(dirName))
+            {
+                Console.WriteLine("Creating {0}", dirName);
+                Directory.CreateDirectory(dirName);
+            }
+
+            Console.WriteLine("Writing appcast to {0}", appcastFileName);
+
+            using (var w = XmlWriter.Create(appcastFileName, new XmlWriterSettings { NewLineChars = "\n", Encoding = new UTF8Encoding(false) }))
+            {
+                appcastXmlDocument.Save(w);
+            }
+
+            if (_signatureManager.KeysExist())
+            {
+                var appcastFile = new FileInfo(appcastFileName);
+                var signatureFile = appcastFileName + ".signature";
+                var signature = _signatureManager.GetSignatureForFile(appcastFile);
+
+                var result = _signatureManager.VerifySignature(appcastFile, signature);
+
+                if (result)
+                {
+
+                    File.WriteAllText(signatureFile, signature);
+                    Console.WriteLine($"Wrote {signatureFile}", Color.Green);
+                }
+                else
+                {
+                    Console.WriteLine($"Failed to verify {signatureFile}", Color.Red);
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Skipped generating signature.  Generate keys with --generate-keys", Color.Red);
+                Environment.Exit(1);
+            }
+
+        }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine();
+                Environment.Exit(1);
+
+            }
+        }
+    
+       
+
         private void LForm_Load(object sender, EventArgs e)
         {
          
        
             dtSales.Columns.Add("id", typeof(string));
-            dtSales.Columns.Add("arquivo", typeof(string));
-            dtSales.Columns.Add("diretorio", typeof(string));
+            dtSales.Columns.Add("file", typeof(string));
+            dtSales.Columns.Add("directory", typeof(string));
             dtSales.Columns.Add("size", typeof(string));
-            dtSales.Columns.Add("crc", typeof(string));
+            dtSales.Columns.Add("hash", typeof(string));
+            dtSales.Columns.Add("version", typeof(string));
             dataGridView1.DataSource = dtSales;
         }
 
