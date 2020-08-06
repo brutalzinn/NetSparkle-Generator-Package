@@ -16,6 +16,7 @@ using System.Drawing;
 using System.Net;
 using System.Data;
 using System.Linq;
+using NetSparkleUpdater.AppCastGenerator;
 
 namespace Update.Maker
 {
@@ -100,7 +101,8 @@ namespace Update.Maker
         {
             return Directory.GetFiles(Path.ToString(), "*.*", System.IO.SearchOption.AllDirectories);
         }
-
+        private static string[] _operatingSystems = new string[] { "windows", "mac", "linux" };
+        private static SignatureManager _signatureManager = new SignatureManager();
         public int GetFilesCount(string[] Files)
         {
             return Files.Length;
@@ -110,7 +112,7 @@ namespace Update.Maker
         {
             FileInfo fileInfo = new FileInfo(File);
 
-            return File + "|" + Utils.GetHash(File) + "|" + fileInfo.Length;
+            return File + "|" + _signatureManager.VerifySignature(File) + "|" + fileInfo.Length;
         }
         private ushort Crc16Ccitt(byte[] bytes)
         {

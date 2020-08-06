@@ -142,3 +142,30 @@ C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-sur
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\GXBuilder.csproj.CopyComplete
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\Update Maker.exe
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\Update Maker.pdb
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.CheckingForUpdatesWindow.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.DownloadProgressWindow.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.MessageNotificationWindow.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.ToastNotifier.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.UpdateAvailableWindow.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.DownloadProgressWindow.bg.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.DownloadProgressWindow.de.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.DownloadProgressWindow.es-MX.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.DownloadProgressWindow.fr.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.DownloadProgressWindow.it.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.DownloadProgressWindow.lt.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.DownloadProgressWindow.nl.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.DownloadProgressWindow.pt-BR.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.DownloadProgressWindow.ru.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.DownloadProgressWindow.zh-CN.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.DownloadProgressWindow.zh-TW.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.UpdateAvailableWindow.bg.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.UpdateAvailableWindow.de.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.UpdateAvailableWindow.es-MX.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.UpdateAvailableWindow.fr.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.UpdateAvailableWindow.it.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.UpdateAvailableWindow.lt.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.UpdateAvailableWindow.nl.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.UpdateAvailableWindow.pt-BR.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.UpdateAvailableWindow.ru.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.UpdateAvailableWindow.zh-CN.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\NetSparkleUpdater.UI.WinForms.UpdateAvailableWindow.zh-TW.resources
