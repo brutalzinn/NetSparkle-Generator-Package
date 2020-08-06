@@ -240,43 +240,7 @@ namespace Update.Maker
             }
         }
 
-        private void UpdateModResult(object Data)
-        {
-            if (!dataGridView2.IsDisposed)
-            {
-                var result = Data.ToString().Replace(@"\", @"/").Split('|');
 
-
-
-                if (Data.ToString() != "")
-                {
-
-
-
-
-
-                    //string result_filter = result[0].Replace(Application.StartupPath, "");
-                    Debug.WriteLine("OLD : " + result[0]);
-                    //Debug.WriteLine("DEBUG: " + Application.StartupPath);
-                    //string result_teste = result[0].Replace((Application.StartupPath + @"\update\").Replace(@"\",@"/"),"");
-                    dataGridView2.Rows.Add(Path.GetFileName(result[0]), result[1]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                }
-            }
-        }
         static bool isRaR(string f)
         {
 
@@ -327,100 +291,34 @@ namespace Update.Maker
 
         private void SaveList()
         {
-            //saveFileDialog.FileName = "update.muonline";
-            //saveFileDialog.Filter = "Text files (*.txt)|*.txt|Every file (*.*)|*.*";
-
-            //if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            //{
-
-            using (System.IO.StreamWriter fileDifferent =
-       new System.IO.StreamWriter(Application.StartupPath + @"\update.survivalcrafters"))
-            {
-                fileDifferent.WriteLine("[UPDATE]");
-                fileDifferent.WriteLine("total=" + Globals.contagem_files);
-                Globals.contagem_files = 0;
-                path_to_remove = Application.StartupPath.Replace(@"\", "/");
+   
                 foreach (DataGridViewRow dataGridViewRow in dataGridView1.Rows)
                 {
 
-
-
-
-
-                    // If the line doesn't contain the word 'Second', write the line to the file.
-
-
-                    if (Convert.ToString(dataGridViewRow.Cells["diretorio"].Value) != "" && Convert.ToString(dataGridViewRow.Cells["crc"].Value) != "" && Convert.ToString(dataGridViewRow.Cells["size"].Value) != "")
+                    if (Convert.ToString(dataGridViewRow.Cells["directory"].Value) != "" && Convert.ToString(dataGridViewRow.Cells["hash"].Value) != "" && Convert.ToString(dataGridViewRow.Cells["size"].Value) != "")
                     {
 
 
-                        fileDifferent.WriteLine("[" + (Globals.contagem_files) + "]");
-                        fileDifferent.WriteLine("caminho=" + Convert.ToString(dataGridViewRow.Cells["diretorio"].Value).Replace(path_to_remove + "/update/", string.Empty));
-                        fileDifferent.WriteLine("crc32=" + Convert.ToString(dataGridViewRow.Cells["crc"].Value));
-                        fileDifferent.WriteLine("len=" + Convert.ToString(dataGridViewRow.Cells["size"].Value));
-                        Globals.contagem_files++;
+
+
+                        CreateXML(dataGridViewRow.Cells["file"].Value.ToString(), textBox1.Text, true, "1.0", new FileInfo(dataGridViewRow.Cells["directory"].Value.ToString()), "windows", "", "google.com.br");
+                        //fileDifferent.WriteLine("[" + (Globals.contagem_files) + "]");
+                        //fileDifferent.WriteLine("caminho=" + Convert.ToString(dataGridViewRow.Cells["diretorio"].Value).Replace(path_to_remove + "/update/", string.Empty));
+                        //fileDifferent.WriteLine("crc32=" + Convert.ToString(dataGridViewRow.Cells["crc"].Value));
+                        //fileDifferent.WriteLine("len=" + Convert.ToString(dataGridViewRow.Cells["size"].Value));
+                        //Globals.contagem_files++;
                         //      Debug.WriteLine(Convert.ToString(dataGridViewRow.Cells["diretorio"].Value).Replace(path_to_remove + "/update/", string.Empty));
                     }
 
 
                 }
-            }
 
-
-            File.Copy(Application.StartupPath + @"\update.survivalcrafters", Application.StartupPath + @"\listas\" + "update" + DateTime.Now.ToString("MM.dd.yyyy.HH.mm.ss") + ".survivalcrafters");
-            //        Debug.WriteLine(Application.StartupPath + @"\listas\" + "update" + DateTime.Now.ToString("MM.dd.yyyy.HH.mm.ss") + ".survivalcrafters");
+            XmlGenerator();
+    //        Debug.WriteLine(Application.StartupPath + @"\listas\" + "update" + DateTime.Now.ToString("MM.dd.yyyy.HH.mm.ss") + ".survivalcrafters");
             //}
         }
 
-        private void SaveList_MOD_LIST()
-        {
-            //saveFileDialog.FileName = "update.muonline";
-            //saveFileDialog.Filter = "Text files (*.txt)|*.txt|Every file (*.*)|*.*";
-
-            //if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            //{
-            if (!Directory.Exists("launcher"))
-            {
-                Directory.CreateDirectory("launcher");
-
-            }
-            using (System.IO.StreamWriter fileDifferent =
-       new System.IO.StreamWriter(Application.StartupPath + @"\launcher\white_list.txt"))
-            {
-
-
-
-                foreach (DataGridViewRow dataGridViewRow in dataGridView2.Rows)
-                {
-
-
-
-
-
-                    // If the line doesn't contain the word 'Second', write the line to the file.
-
-
-                    if (Convert.ToString(dataGridViewRow.Cells["Mod"].Value) != "" && Convert.ToString(dataGridViewRow.Cells["CRC_MOD"].Value) != "")
-                    {
-
-
-
-                        fileDifferent.WriteLine(Convert.ToString(dataGridViewRow.Cells["Mod"].Value + "|" + Convert.ToString(dataGridViewRow.Cells["CRC_MOD"].Value)));
-
-
-
-                        //      Debug.WriteLine(Convert.ToString(dataGridViewRow.Cells["diretorio"].Value).Replace(path_to_remove + "/update/", string.Empty));
-                    }
-
-
-                }
-            }
-
-
-            //  File.Copy(Application.StartupPath + @"\update.survivalcrafters", Application.StartupPath + @"\listas\" + "update" + DateTime.Now.ToString("MM.dd.yyyy.HH.mm.ss") + ".survivalcrafters");
-            //        Debug.WriteLine(Application.StartupPath + @"\listas\" + "update" + DateTime.Now.ToString("MM.dd.yyyy.HH.mm.ss") + ".survivalcrafters");
-            //}
-        }
+    
         private const string RAR_PATH = @"rar.exe";
         //Package files.
         private void RarFiles(string rarPackagePath, List<string> files)
@@ -455,8 +353,8 @@ namespace Update.Maker
 
         }
 
-
-        public void CreateXML(string productName, string BaseUrl, bool PrefixVersion , string version, FileInfo fileInfo, string operationsystem, string changelogpath,string changlogurl)
+  public static List<AppCastItem> items = new List<AppCastItem>();
+        public  void CreateXML(string productName, string BaseUrl, bool PrefixVersion , string version, FileInfo fileInfo, string operationsystem, string changelogpath,string changlogurl)
         {
 
 
@@ -464,7 +362,7 @@ namespace Update.Maker
             {
              
 
-                var items = new List<AppCastItem>();
+              
 
                 var usesChangelogs = !string.IsNullOrWhiteSpace(changelogpath) && Directory.Exists(changelogpath);
                 var productVersion = version;
@@ -510,12 +408,30 @@ namespace Update.Maker
                 }
 
                 items.Add(item);
-            
+              
+               
+               
 
-                var appcastXmlDocument = XMLAppCast.GenerateAppCastXml(items, productName);
+        }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine();
+                Environment.Exit(1);
 
-            var appcastFileName = Path.Combine(Application.StartupPath + @"\update\", "appcast.xml");
+            }
+        }
+    
+       public void XmlGenerator()
+        {
+            var appcastXmlDocument = XMLAppCast.GenerateAppCastXml(items, "Update List" );
 
+            var appcastFileName = Path.Combine(Application.StartupPath + @"\output\", "appcast.xml");
+
+            if (File.Exists(appcastFileName))
+            {
+                File.Delete(appcastFileName);
+            }
             var dirName = Path.GetDirectoryName(appcastFileName);
 
             if (!Directory.Exists(dirName))
@@ -556,18 +472,7 @@ namespace Update.Maker
                 Console.WriteLine("Skipped generating signature.  Generate keys with --generate-keys", Color.Red);
                 Environment.Exit(1);
             }
-
         }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                Console.WriteLine();
-                Environment.Exit(1);
-
-            }
-        }
-    
-       
 
         private void LForm_Load(object sender, EventArgs e)
         {
@@ -766,29 +671,7 @@ var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["dir
          
 
         }
-        private void MOD_LOAD_LIST()
-        {
-
-
-
-            foreach (string line in File.ReadLines(Application.StartupPath + @"\launcher\white_list.txt")) 
-            {
-                string[] ini_value = line.Split('|');
-                dataGridView2.Rows.Add(ini_value[0], ini_value[1]);
-                
-            }
-
-
-            
-
-
-
-
-
-
-
-
-            }
+       
 
         private void Item_Click(object sender, EventArgs e)
         {
@@ -918,23 +801,7 @@ var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["dir
             }
 
         }
-        private void removerMod_LIST()
-        {
-
-
-            if (dataGridView2.SelectedRows.Count > 0)
-            {
-                DataGridViewSelectedRowCollection row = dataGridView2.SelectedRows;
-          
-                // taking the index of the selected rows and removing/
-                dataGridView2.Rows.RemoveAt(dataGridView2.SelectedRows[0].Index);
-            }
-            else
-            {  //optional    
-                MessageBox.Show("Selecione um arquivo");
-            }
-
-        }
+      
 
         private void LimparListaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1042,133 +909,8 @@ Globals.contagem_files++;
             }
 
         }
-        private void MOD_LIST_add()
-        {
-
-
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
-            openFileDialog1.CheckFileExists = true;
-            openFileDialog1.CheckPathExists = true;
-            openFileDialog1.FilterIndex = 2;
-            openFileDialog1.RestoreDirectory = true;
-            openFileDialog1.ReadOnlyChecked = true;
-            openFileDialog1.ShowReadOnly = true;
-
-            openFileDialog1.Multiselect = true;
-            openFileDialog1.Title = "Selecionar Arquivos";
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-
-                foreach (String arquivo in openFileDialog1.FileNames)
-                {
-
-
-                    log(Globals.code.GERENCIADOR, "O mod foi adicionado " + Path.GetFileName(arquivo) + " foi adicionado");
-
-
-
-
-                    //row.Cells["chat1"].Style.ForeColor = Color.CadetBlue;
-
-
-                    foreach (DataGridViewRow dataGridViewRow in dataGridView2.Rows)
-                    {
-
-                        string crc_list = Convert.ToString(dataGridViewRow.Cells["Mod"].Value);
-                        string arquivo_list = Convert.ToString(dataGridViewRow.Cells["CRC_MOD"].Value);
-
-
-
-
-
-
-                        // If the line doesn't contain the word 'Second', write the line to the file.
-
-
-
-
-
-
-
-                        if (Path.GetFileName(arquivo) == arquivo_list && crc_list != Convert.ToString(Utils.GetHash(arquivo)))
-                        {
-
-                            log(Globals.code.GERENCIADOR, "O arquivo antigo " + Path.GetFileName(arquivo) + " foi substituido pelo novo " + Path.GetFileName(arquivo));
-
-                            var resultinfo = GetFileData(arquivo.Replace(@"\", @"/")).Split('|');
-
-
-
-
-                            DataGridViewRow newDataRow = dataGridView2.Rows[dataGridViewRow.Index];
-                            newDataRow.Cells[0].Value = Path.GetFileName(arquivo);
-                            newDataRow.Cells[1].Value = resultinfo[2];
-
-
-                            
-                            break;
-                            //log("Arquivo:" + Path.GetFileName(arquivo) + " Foi atualizado. " + "crc" + dataGridViewRow.Cells["crc"].Value + "para" + GetHash(arquivo));
-                        }
-                        else
-                        {
-                            UpdateModResult(GetFileData(arquivo));
-                            break;
-
-                        }
-
-                    }
-
-
-
-
-
-
-
-
-                }
-
-
-            }
-        }
-        private void Button4_Click(object sender, EventArgs e)
-        {
-            MOD_LIST_add();
-        }
-
-        private void Button6_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog
-            {
-                InitialDirectory = Application.StartupPath,
-                Title = "Browse Text Files",
-
-                CheckFileExists = true,
-                CheckPathExists = true,
-
-                DefaultExt = "exe",
-                Filter = "txt files (*.exe)|*.exe",
-                FilterIndex = 2,
-                RestoreDirectory = true,
-
-                ReadOnlyChecked = true,
-                ShowReadOnly = true
-            };
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-
-                file_path_launcher_update = openFileDialog1.FileName;
-                textBox1.Text = Path.GetFileName(file_path_launcher_update);
-
-                label9.Text = "CRC: " + Utils.GetHash(file_path_launcher_update).ToString();
-
-                
-                    FileInfo fileInfo = new FileInfo(file_path_launcher_update);
-                label10.Text = "Tamanho:" + fileInfo.Length.ToString();
-            }
-        }
+      
+     
 
         private void Button5_Click(object sender, EventArgs e)
         {
@@ -1191,35 +933,11 @@ Globals.contagem_files++;
             System.IO.File.WriteAllText(Application.StartupPath + @"\launcher\launcherupdate.txt", text);
         }
 
-        private void Button7_Click(object sender, EventArgs e)
-        {
-            if (!Directory.Exists("launcher"))
-            {
-                Directory.CreateDirectory("launcher");
+      
 
-            }
-            string text =  textBox2.Text + "|" + textBox3.Text + "|" + Convert.ToString(checkBox1.Checked ? 1 : 0 );
-            System.IO.File.WriteAllText(Application.StartupPath + @"\launcher\manutence.txt", text);
-        }
-
-        private void Button8_Click(object sender, EventArgs e)
-        {
-            removerMod_LIST();
-        }
-
-        private void Button9_Click(object sender, EventArgs e)
-        {
-
-
-
-            SaveList_MOD_LIST();
-
-        }
-
-        private void Button10_Click(object sender, EventArgs e)
-        {
-            MOD_LOAD_LIST();
-        }
+    
+       
+       
 
         private void Progress_Click(object sender, EventArgs e)
         {

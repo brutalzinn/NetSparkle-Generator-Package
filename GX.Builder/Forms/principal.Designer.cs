@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.browseButton = new System.Windows.Forms.Button();
             this.Progress = new System.Windows.Forms.ProgressBar();
             this.saveButton = new System.Windows.Forms.Button();
@@ -45,6 +45,7 @@
             this.arquivo_context = new System.Windows.Forms.ToolStripMenuItem();
             this.arquivo_context_add_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.removearquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarPastaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clear_list = new System.Windows.Forms.ToolStripMenuItem();
             this.recalcularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
@@ -66,41 +67,15 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Mod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CRC_MOD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button4 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.listarPastaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menu_options.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // browseButton
@@ -145,8 +120,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.menu_options;
@@ -172,14 +147,14 @@
             // atualizar_list
             // 
             this.atualizar_list.Name = "atualizar_list";
-            this.atualizar_list.Size = new System.Drawing.Size(202, 22);
+            this.atualizar_list.Size = new System.Drawing.Size(166, 22);
             this.atualizar_list.Text = "Atualizar lista";
             this.atualizar_list.Click += new System.EventHandler(this.Atualizar_list_Click);
             // 
             // carregar_list
             // 
             this.carregar_list.Name = "carregar_list";
-            this.carregar_list.Size = new System.Drawing.Size(202, 22);
+            this.carregar_list.Size = new System.Drawing.Size(166, 22);
             this.carregar_list.Text = "Carregar lista";
             this.carregar_list.Click += new System.EventHandler(this.Carregar_list_Click);
             // 
@@ -192,14 +167,14 @@
             this.listarPastaToolStripMenuItem});
             this.arquivo_context.ForeColor = System.Drawing.Color.White;
             this.arquivo_context.Name = "arquivo_context";
-            this.arquivo_context.Size = new System.Drawing.Size(202, 22);
+            this.arquivo_context.Size = new System.Drawing.Size(166, 22);
             this.arquivo_context.Text = "Arquivo";
             // 
             // arquivo_context_add_menu
             // 
             this.arquivo_context_add_menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.arquivo_context_add_menu.Name = "arquivo_context_add_menu";
-            this.arquivo_context_add_menu.Size = new System.Drawing.Size(180, 22);
+            this.arquivo_context_add_menu.Size = new System.Drawing.Size(168, 22);
             this.arquivo_context_add_menu.Text = "Adicionar arquivo";
             this.arquivo_context_add_menu.Click += new System.EventHandler(this.Arquivo_context_add_menu_Click);
             // 
@@ -207,23 +182,30 @@
             // 
             this.removearquivoToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.removearquivoToolStripMenuItem.Name = "removearquivoToolStripMenuItem";
-            this.removearquivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removearquivoToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.removearquivoToolStripMenuItem.Text = "Remover arquivo";
             this.removearquivoToolStripMenuItem.Click += new System.EventHandler(this.RemovearquivoToolStripMenuItem_Click);
+            // 
+            // listarPastaToolStripMenuItem
+            // 
+            this.listarPastaToolStripMenuItem.Name = "listarPastaToolStripMenuItem";
+            this.listarPastaToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.listarPastaToolStripMenuItem.Text = "Listar pasta";
+            this.listarPastaToolStripMenuItem.Click += new System.EventHandler(this.ListarPastaToolStripMenuItem_Click);
             // 
             // clear_list
             // 
             this.clear_list.BackColor = System.Drawing.Color.Red;
             this.clear_list.ForeColor = System.Drawing.Color.White;
             this.clear_list.Name = "clear_list";
-            this.clear_list.Size = new System.Drawing.Size(202, 22);
+            this.clear_list.Size = new System.Drawing.Size(166, 22);
             this.clear_list.Text = "Limpar lista";
             this.clear_list.Click += new System.EventHandler(this.LimparListaToolStripMenuItem_Click);
             // 
             // recalcularToolStripMenuItem
             // 
             this.recalcularToolStripMenuItem.Name = "recalcularToolStripMenuItem";
-            this.recalcularToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.recalcularToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.recalcularToolStripMenuItem.Text = "Recalcular";
             this.recalcularToolStripMenuItem.Click += new System.EventHandler(this.RecalcularToolStripMenuItem_Click);
             // 
@@ -420,238 +402,15 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Controls.Add(this.groupBox1);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(875, 474);
+            this.tabPage2.Size = new System.Drawing.Size(875, 486);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Launcher";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.button10);
-            this.groupBox3.Controls.Add(this.button9);
-            this.groupBox3.Controls.Add(this.button8);
-            this.groupBox3.Controls.Add(this.dataGridView2);
-            this.groupBox3.Controls.Add(this.button4);
-            this.groupBox3.Location = new System.Drawing.Point(377, 47);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(468, 403);
-            this.groupBox3.TabIndex = 12;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "MODS LIBERADOS";
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(261, 353);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(98, 43);
-            this.button10.TabIndex = 13;
-            this.button10.Text = "Abrir";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.Button10_Click);
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(365, 350);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(93, 46);
-            this.button9.TabIndex = 12;
-            this.button9.Text = "Salvar";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.Button9_Click);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(138, 350);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(117, 47);
-            this.button8.TabIndex = 11;
-            this.button8.Text = "Remover mod";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.Button8_Click);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Mod,
-            this.CRC_MOD});
-            this.dataGridView2.Location = new System.Drawing.Point(15, 31);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(443, 313);
-            this.dataGridView2.TabIndex = 10;
-            // 
-            // Mod
-            // 
-            this.Mod.HeaderText = "Mod";
-            this.Mod.Name = "Mod";
-            // 
-            // CRC_MOD
-            // 
-            this.CRC_MOD.HeaderText = "CRC";
-            this.CRC_MOD.Name = "CRC_MOD";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(15, 350);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(117, 47);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Adicionar mod";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Button4_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Controls.Add(this.button7);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Location = new System.Drawing.Point(23, 34);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(319, 137);
-            this.groupBox2.TabIndex = 11;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Sistema de manutenção";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(10, 77);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 13);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Manutenção:";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(83, 77);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(103, 17);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "Ativar/Desativar";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(235, 88);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(78, 34);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Salvar";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.Button7_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 50);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 13);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Mensagem:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 24);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 13);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Título:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(74, 47);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(229, 20);
-            this.textBox3.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(74, 21);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(229, 20);
-            this.textBox2.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(23, 177);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(319, 153);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Atualizar o launcher";
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(155, 107);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(74, 37);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "Abrir";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.Button6_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(235, 105);
-            this.button5.Name = "button5";
-            this.button5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.button5.Size = new System.Drawing.Size(78, 41);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "Salvar";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.Button5_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(72, 92);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 13);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Tamanho";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(71, 66);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "CRC: 0000000";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(74, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Nome. EXE";
             // 
             // radioButton1
             // 
@@ -664,12 +423,21 @@
             this.radioButton1.Text = "radioButton1";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // listarPastaToolStripMenuItem
+            // textBox1
             // 
-            this.listarPastaToolStripMenuItem.Name = "listarPastaToolStripMenuItem";
-            this.listarPastaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.listarPastaToolStripMenuItem.Text = "Listar pasta";
-            this.listarPastaToolStripMenuItem.Click += new System.EventHandler(this.ListarPastaToolStripMenuItem_Click);
+            this.textBox1.Location = new System.Drawing.Point(49, 42);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(392, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 45);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "label6";
             // 
             // principal
             // 
@@ -694,12 +462,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -732,34 +495,11 @@
         private System.Windows.Forms.ToolStripMenuItem desenvolvidoPorRobertinhonetToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.TabPage tabPage1;
         public System.Windows.Forms.RichTextBox log_list;
         public System.Windows.Forms.ToolStripMenuItem license_text_show;
         private System.Windows.Forms.ToolStripMenuItem recalcularToolStripMenuItem;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CRC_MOD;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button_finder;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.RadioButton finder_file;
@@ -767,6 +507,8 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton finder_fixo;
         private System.Windows.Forms.ToolStripMenuItem listarPastaToolStripMenuItem;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
