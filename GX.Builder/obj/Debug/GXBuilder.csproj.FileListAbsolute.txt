@@ -157,7 +157,6 @@ C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-sur
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\generator-survivalcrafters-update-crc\GX.Builder\obj\Debug\GXBuilder.csproj.CoreCompileInputs.cache
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\Update Maker.exe.config
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\Update.Maker.principal.resources
-C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\Update.Maker.Forms.serialActivation.resources
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\Update.Maker.Properties.Resources.resources
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\GXBuilder.csproj.GenerateResource.cache
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\GXBuilder.csproj.CoreCompileInputs.cache

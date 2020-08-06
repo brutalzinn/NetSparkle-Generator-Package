@@ -112,12 +112,6 @@
     <Compile Include="Forms\principal.Designer.cs">
       <DependentUpon>principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\serialActivation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\serialActivation.Designer.cs">
-      <DependentUpon>serialActivation.cs</DependentUpon>
-    </Compile>
     <Compile Include="NetSparkle\AppCastHandlers\XMLAppCast.cs" />
     <Compile Include="NetSparkle\AppCastItem.cs" />
     <Compile Include="NetSparkle\AssemblyAccessors\AssemblyDiagnosticsAccessor.cs" />
@@ -168,15 +162,11 @@
     <Compile Include="Source files\crypt.cs" />
     <Compile Include="Source files\Globals.cs" />
     <Compile Include="Source files\hwid.cs" />
-    <Compile Include="Source files\license.cs" />
     <Compile Include="Source files\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source files\Utils.cs" />
     <EmbeddedResource Include="Forms\principal.resx">
       <DependentUpon>principal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\serialActivation.resx">
-      <DependentUpon>serialActivation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

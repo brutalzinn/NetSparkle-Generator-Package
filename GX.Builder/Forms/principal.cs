@@ -453,8 +453,8 @@ namespace Update.Maker
      
         private void LForm_Load(object sender, EventArgs e)
         {
-            license teste = new license();
-          teste.Start(Globals.ByForm.principal.ToString());
+         
+       
             dtSales.Columns.Add("id", typeof(string));
             dtSales.Columns.Add("arquivo", typeof(string));
             dtSales.Columns.Add("diretorio", typeof(string));

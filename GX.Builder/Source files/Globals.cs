@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Update.Maker.Forms;
 
 namespace Update.Maker.Source_files
 {
@@ -15,7 +14,7 @@ namespace Update.Maker.Source_files
         public static string application_name = "GeradorUpdate1.0";
         public static int? contagem_files = 0;
         public static principal principal;
-        public static serialActivation serialActivation;
+ 
         public static string url = "robertinho.net";
         public enum ByForm
         {
