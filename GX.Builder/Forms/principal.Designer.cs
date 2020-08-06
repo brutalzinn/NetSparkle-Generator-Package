@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.browseButton = new System.Windows.Forms.Button();
             this.Progress = new System.Windows.Forms.ProgressBar();
             this.saveButton = new System.Windows.Forms.Button();
@@ -59,6 +59,9 @@
             this.license_text_show = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.finder_fixo = new System.Windows.Forms.RadioButton();
+            this.finder_file = new System.Windows.Forms.RadioButton();
+            this.finder_directory = new System.Windows.Forms.RadioButton();
             this.button_finder = new System.Windows.Forms.Button();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -87,9 +90,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.finder_directory = new System.Windows.Forms.RadioButton();
-            this.finder_file = new System.Windows.Forms.RadioButton();
-            this.finder_fixo = new System.Windows.Forms.RadioButton();
+            this.listarPastaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menu_options.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -144,8 +145,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.menu_options;
@@ -171,14 +172,14 @@
             // atualizar_list
             // 
             this.atualizar_list.Name = "atualizar_list";
-            this.atualizar_list.Size = new System.Drawing.Size(166, 22);
+            this.atualizar_list.Size = new System.Drawing.Size(202, 22);
             this.atualizar_list.Text = "Atualizar lista";
             this.atualizar_list.Click += new System.EventHandler(this.Atualizar_list_Click);
             // 
             // carregar_list
             // 
             this.carregar_list.Name = "carregar_list";
-            this.carregar_list.Size = new System.Drawing.Size(166, 22);
+            this.carregar_list.Size = new System.Drawing.Size(202, 22);
             this.carregar_list.Text = "Carregar lista";
             this.carregar_list.Click += new System.EventHandler(this.Carregar_list_Click);
             // 
@@ -187,10 +188,11 @@
             this.arquivo_context.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.arquivo_context.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.arquivo_context_add_menu,
-            this.removearquivoToolStripMenuItem});
+            this.removearquivoToolStripMenuItem,
+            this.listarPastaToolStripMenuItem});
             this.arquivo_context.ForeColor = System.Drawing.Color.White;
             this.arquivo_context.Name = "arquivo_context";
-            this.arquivo_context.Size = new System.Drawing.Size(166, 22);
+            this.arquivo_context.Size = new System.Drawing.Size(202, 22);
             this.arquivo_context.Text = "Arquivo";
             // 
             // arquivo_context_add_menu
@@ -214,14 +216,14 @@
             this.clear_list.BackColor = System.Drawing.Color.Red;
             this.clear_list.ForeColor = System.Drawing.Color.White;
             this.clear_list.Name = "clear_list";
-            this.clear_list.Size = new System.Drawing.Size(166, 22);
+            this.clear_list.Size = new System.Drawing.Size(202, 22);
             this.clear_list.Text = "Limpar lista";
             this.clear_list.Click += new System.EventHandler(this.LimparListaToolStripMenuItem_Click);
             // 
             // recalcularToolStripMenuItem
             // 
             this.recalcularToolStripMenuItem.Name = "recalcularToolStripMenuItem";
-            this.recalcularToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.recalcularToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.recalcularToolStripMenuItem.Text = "Recalcular";
             this.recalcularToolStripMenuItem.Click += new System.EventHandler(this.RecalcularToolStripMenuItem_Click);
             // 
@@ -319,14 +321,16 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(883, 500);
+            this.tabControl1.Size = new System.Drawing.Size(883, 512);
             this.tabControl1.TabIndex = 17;
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
             this.tabPage1.Controls.Add(this.finder_fixo);
             this.tabPage1.Controls.Add(this.finder_file);
             this.tabPage1.Controls.Add(this.finder_directory);
@@ -347,11 +351,44 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(875, 474);
+            this.tabPage1.Size = new System.Drawing.Size(875, 486);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Principal";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.TabPage1_Click);
+            // 
+            // finder_fixo
+            // 
+            this.finder_fixo.AutoSize = true;
+            this.finder_fixo.Location = new System.Drawing.Point(380, 12);
+            this.finder_fixo.Name = "finder_fixo";
+            this.finder_fixo.Size = new System.Drawing.Size(41, 17);
+            this.finder_fixo.TabIndex = 20;
+            this.finder_fixo.TabStop = true;
+            this.finder_fixo.Text = "fixo";
+            this.finder_fixo.UseVisualStyleBackColor = true;
+            // 
+            // finder_file
+            // 
+            this.finder_file.AutoSize = true;
+            this.finder_file.Location = new System.Drawing.Point(439, 12);
+            this.finder_file.Name = "finder_file";
+            this.finder_file.Size = new System.Drawing.Size(61, 17);
+            this.finder_file.TabIndex = 19;
+            this.finder_file.TabStop = true;
+            this.finder_file.Text = "Arquivo";
+            this.finder_file.UseVisualStyleBackColor = true;
+            // 
+            // finder_directory
+            // 
+            this.finder_directory.AutoSize = true;
+            this.finder_directory.Location = new System.Drawing.Point(519, 12);
+            this.finder_directory.Name = "finder_directory";
+            this.finder_directory.Size = new System.Drawing.Size(62, 17);
+            this.finder_directory.TabIndex = 18;
+            this.finder_directory.TabStop = true;
+            this.finder_directory.Text = "diretório";
+            this.finder_directory.UseVisualStyleBackColor = true;
             // 
             // button_finder
             // 
@@ -627,43 +664,18 @@
             this.radioButton1.Text = "radioButton1";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // finder_directory
+            // listarPastaToolStripMenuItem
             // 
-            this.finder_directory.AutoSize = true;
-            this.finder_directory.Location = new System.Drawing.Point(519, 12);
-            this.finder_directory.Name = "finder_directory";
-            this.finder_directory.Size = new System.Drawing.Size(62, 17);
-            this.finder_directory.TabIndex = 18;
-            this.finder_directory.TabStop = true;
-            this.finder_directory.Text = "diretório";
-            this.finder_directory.UseVisualStyleBackColor = true;
-            // 
-            // finder_file
-            // 
-            this.finder_file.AutoSize = true;
-            this.finder_file.Location = new System.Drawing.Point(439, 12);
-            this.finder_file.Name = "finder_file";
-            this.finder_file.Size = new System.Drawing.Size(61, 17);
-            this.finder_file.TabIndex = 19;
-            this.finder_file.TabStop = true;
-            this.finder_file.Text = "Arquivo";
-            this.finder_file.UseVisualStyleBackColor = true;
-            // 
-            // finder_fixo
-            // 
-            this.finder_fixo.AutoSize = true;
-            this.finder_fixo.Location = new System.Drawing.Point(380, 12);
-            this.finder_fixo.Name = "finder_fixo";
-            this.finder_fixo.Size = new System.Drawing.Size(41, 17);
-            this.finder_fixo.TabIndex = 20;
-            this.finder_fixo.TabStop = true;
-            this.finder_fixo.Text = "fixo";
-            this.finder_fixo.UseVisualStyleBackColor = true;
+            this.listarPastaToolStripMenuItem.Name = "listarPastaToolStripMenuItem";
+            this.listarPastaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listarPastaToolStripMenuItem.Text = "Listar pasta";
+            this.listarPastaToolStripMenuItem.Click += new System.EventHandler(this.ListarPastaToolStripMenuItem_Click);
             // 
             // principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(883, 512);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.menuStrip1);
@@ -754,6 +766,7 @@
         private System.Windows.Forms.RadioButton finder_directory;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton finder_fixo;
+        private System.Windows.Forms.ToolStripMenuItem listarPastaToolStripMenuItem;
     }
 }
 

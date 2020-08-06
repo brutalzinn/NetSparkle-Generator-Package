@@ -40,8 +40,8 @@ namespace Update.Maker
        
         private void browseButton_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            dataGridView1.Refresh();
+            dtSales.Rows.Clear();
+            //dtSales.Refresh();
             Globals.contagem_files = 0;
             log(Globals.code.GERENCIADOR, "Arquivos listados.");
             StartBrowsing();
@@ -1160,7 +1160,125 @@ Globals.contagem_files++;
 
                 }
 
+        private void ListarPastaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
+            {
+                //      fbd.SelectedPath = Application.StartupPath;
+                System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+
+                if (result == System.Windows.Forms.DialogResult.OK)
+                {
+                    string[] files = Directory.GetFiles(dialog.SelectedPath);
+                    Debug.WriteLine("Chamou");
+
+                    foreach (string arquivo in files)
+                    {
+                        Debug.WriteLine("Chamou" + arquivo);
+
+
+                        log(Globals.code.GERENCIADOR, "O arquivo " + Path.GetFileName(arquivo) + " foi adicionado");
+
+
+
+
+                        //row.Cells["chat1"].Style.ForeColor = Color.CadetBlue;
+
+
+                        foreach (DataGridViewRow dataGridViewRow in dataGridView1.Rows)
+                        {
+
+                            string crc_list = Convert.ToString(dataGridViewRow.Cells["crc"].Value);
+                            string arquivo_list = Convert.ToString(dataGridViewRow.Cells["arquivo"].Value);
+
+
+
+
+
+
+                            // If the line doesn't contain the word 'Second', write the line to the file.
+
+
+
+
+
+
+
+                            if (Path.GetFileName(arquivo) == arquivo_list && crc_list != Convert.ToString(Utils.GetHash(arquivo)))
+                            {
+
+                                log(Globals.code.GERENCIADOR, "O arquivo antigo " + Path.GetFileName(arquivo) + " foi substituido pelo novo " + Path.GetFileName(arquivo));
+
+                                var resultinfo = GetFileData(arquivo.Replace(@"\", @"/")).Split('|');
+
+
+
+
+                                DataGridViewRow newDataRow = dataGridView1.Rows[dataGridViewRow.Index];
+                                newDataRow.Cells[0].Value = Globals.contagem_files - 1;
+                                newDataRow.Cells[1].Value = Path.GetFileName(arquivo);
+                                newDataRow.Cells[2].Value = resultinfo[0];
+
+
+                                newDataRow.Cells[3].Value = resultinfo[2];
+                                newDataRow.Cells[4].Value = resultinfo[1];
+
+                                break;
+                                //log("Arquivo:" + Path.GetFileName(arquivo) + " Foi atualizado. " + "crc" + dataGridViewRow.Cells["crc"].Value + "para" + GetHash(arquivo));
+                            }
+                            else
+                            {
+                                UpdateResult(GetFileData(arquivo));
+                                break;
+
+                            }
+
+                        }
+
+
+
+
+
+
+
+
+                    }
+                }
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+    }
 
         }
     

@@ -1,2 +1,5 @@
-OptiFine_1.12.2_HD_U_F5_MOD.jar|-733062095
-LagGoggles-FAT-1.12.2-4.9.jar|1973552370
+Integration_1.12.2-4.1.14.jar|551243784
+twitchspawn_1.12.2-0.4.17.jar|1393906975
+ChatTweaks_1.12.2-5.1.23.jar|-1313991716
+ASM-Mod-1.12.2.jar|-965634437
+GLSL-Shaders-Mod-1.12.2.jar|-1949145090
