@@ -651,30 +651,15 @@ var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["dir
                             foreach (DataGridViewRow dataGridViewRow in dataGridView1.Rows)
                             {
 
-                                string crc_list = Convert.ToString(dataGridViewRow.Cells["crc"].Value);
-                                string arquivo_list = Convert.ToString(dataGridViewRow.Cells["arquivo"].Value);
+                                string crc_list = Convert.ToString(dataGridViewRow.Cells["hash"].Value);
+                                string arquivo_list = Convert.ToString(dataGridViewRow.Cells["directory"].Value);
 
-
-
-
-
-
-                                // If the line doesn't contain the word 'Second', write the line to the file.
-
-
-
-
-
-
-
-                                if (Path.GetFileName(arquivo) == arquivo_list && crc_list != Convert.ToString(Utils.GetHash(arquivo)))
+                                if (Path.GetFileName(arquivo) == arquivo_list && crc_list != Convert.ToString(_signatureManager.GetSignatureForFile(arquivo)))
                                 {
 
                             log(Globals.code.GERENCIADOR, "O arquivo antigo " + Path.GetFileName(arquivo) + " foi substituido pelo novo "+ Path.GetFileName(arquivo));
 
                             var resultinfo = GetFileData(arquivo.Replace(@"\",@"/")).Split('|');
-
-
 
 
                             DataGridViewRow newDataRow = dataGridView1.Rows[dataGridViewRow.Index];
@@ -687,7 +672,6 @@ var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["dir
                             newDataRow.Cells[4].Value = resultinfo[1];
                      
                             break;
-                            //log("Arquivo:" + Path.GetFileName(arquivo) + " Foi atualizado. " + "crc" + dataGridViewRow.Cells["crc"].Value + "para" + GetHash(arquivo));
                         }
                         else
                         {

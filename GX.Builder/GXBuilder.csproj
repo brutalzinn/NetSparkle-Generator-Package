@@ -110,6 +110,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Formulario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Formulario.Designer.cs">
+      <DependentUpon>Formulario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     <Compile Include="Source files\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source files\Utils.cs" />
+    <EmbeddedResource Include="Forms\Formulario.resx">
+      <DependentUpon>Formulario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\principal.resx">
       <DependentUpon>principal.cs</DependentUpon>
     </EmbeddedResource>
