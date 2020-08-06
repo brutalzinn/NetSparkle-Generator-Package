@@ -60,6 +60,8 @@
             this.license_text_show = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.finder_fixo = new System.Windows.Forms.RadioButton();
             this.finder_file = new System.Windows.Forms.RadioButton();
             this.finder_directory = new System.Windows.Forms.RadioButton();
@@ -68,8 +70,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.editarLinhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menu_options.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -135,25 +136,26 @@
             this.menu_options.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.atualizar_list,
             this.carregar_list,
+            this.editarLinhaToolStripMenuItem,
             this.arquivo_context,
             this.clear_list,
             this.recalcularToolStripMenuItem});
             this.menu_options.Name = "menu_options";
             this.menu_options.ShowCheckMargin = true;
-            this.menu_options.Size = new System.Drawing.Size(203, 136);
+            this.menu_options.Size = new System.Drawing.Size(167, 136);
             this.menu_options.Opening += new System.ComponentModel.CancelEventHandler(this.Menu_options_Opening);
             // 
             // atualizar_list
             // 
             this.atualizar_list.Name = "atualizar_list";
-            this.atualizar_list.Size = new System.Drawing.Size(202, 22);
+            this.atualizar_list.Size = new System.Drawing.Size(166, 22);
             this.atualizar_list.Text = "Atualizar lista";
             this.atualizar_list.Click += new System.EventHandler(this.Atualizar_list_Click);
             // 
             // carregar_list
             // 
             this.carregar_list.Name = "carregar_list";
-            this.carregar_list.Size = new System.Drawing.Size(202, 22);
+            this.carregar_list.Size = new System.Drawing.Size(166, 22);
             this.carregar_list.Text = "Carregar lista";
             this.carregar_list.Click += new System.EventHandler(this.Carregar_list_Click);
             // 
@@ -166,7 +168,7 @@
             this.listarPastaToolStripMenuItem});
             this.arquivo_context.ForeColor = System.Drawing.Color.White;
             this.arquivo_context.Name = "arquivo_context";
-            this.arquivo_context.Size = new System.Drawing.Size(202, 22);
+            this.arquivo_context.Size = new System.Drawing.Size(166, 22);
             this.arquivo_context.Text = "Arquivo";
             // 
             // arquivo_context_add_menu
@@ -197,14 +199,14 @@
             this.clear_list.BackColor = System.Drawing.Color.Red;
             this.clear_list.ForeColor = System.Drawing.Color.White;
             this.clear_list.Name = "clear_list";
-            this.clear_list.Size = new System.Drawing.Size(202, 22);
+            this.clear_list.Size = new System.Drawing.Size(166, 22);
             this.clear_list.Text = "Limpar lista";
             this.clear_list.Click += new System.EventHandler(this.LimparListaToolStripMenuItem_Click);
             // 
             // recalcularToolStripMenuItem
             // 
             this.recalcularToolStripMenuItem.Name = "recalcularToolStripMenuItem";
-            this.recalcularToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.recalcularToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.recalcularToolStripMenuItem.Text = "Recalcular";
             this.recalcularToolStripMenuItem.Click += new System.EventHandler(this.RecalcularToolStripMenuItem_Click);
             // 
@@ -340,6 +342,22 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.TabPage1_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(198, 303);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "label6";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(239, 300);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(230, 20);
+            this.textBox1.TabIndex = 21;
+            // 
             // finder_fixo
             // 
             this.finder_fixo.AutoSize = true;
@@ -422,21 +440,12 @@
             this.radioButton1.Text = "radioButton1";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // editarLinhaToolStripMenuItem
             // 
-            this.textBox1.Location = new System.Drawing.Point(239, 300);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 20);
-            this.textBox1.TabIndex = 21;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(198, 303);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "label6";
+            this.editarLinhaToolStripMenuItem.Name = "editarLinhaToolStripMenuItem";
+            this.editarLinhaToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.editarLinhaToolStripMenuItem.Text = "Editar linha";
+            this.editarLinhaToolStripMenuItem.Click += new System.EventHandler(this.editarLinhaToolStripMenuItem_Click);
             // 
             // principal
             // 
@@ -474,7 +483,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog Openfileadd;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ContextMenuStrip menu_options;
         private System.Windows.Forms.ToolStripMenuItem atualizar_list;
@@ -506,6 +514,8 @@
         private System.Windows.Forms.ToolStripMenuItem listarPastaToolStripMenuItem;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolStripMenuItem editarLinhaToolStripMenuItem;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

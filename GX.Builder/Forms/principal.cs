@@ -23,6 +23,7 @@ using NetSparkleUpdater.AppCastHandlers;
 using System.Xml;
 using NetSparkleUpdater.Interfaces;
 using System.Xml.Linq;
+using Update.Maker.Forms;
 
 namespace Update.Maker
 {
@@ -486,6 +487,13 @@ namespace Update.Maker
             dtSales.Columns.Add("size", typeof(string));
             dtSales.Columns.Add("hash", typeof(string));
             dtSales.Columns.Add("version", typeof(string));
+            dtSales.Columns.Add("title", typeof(string));
+            dtSales.Columns.Add("releasenote", typeof(string));
+            dtSales.Columns.Add("link", typeof(string));
+            dtSales.Columns.Add("shortversion", typeof(string));
+            dtSales.Columns.Add("systemos", typeof(string));
+            dtSales.Columns.Add("type", typeof(string));
+            dtSales.Columns.Add("crtiticalupdate", typeof(string));
             dataGridView1.DataSource = dtSales;
         }
 
@@ -645,7 +653,6 @@ var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["dir
 
 
 
-                    //row.Cells["chat1"].Style.ForeColor = Color.CadetBlue;
 
                     
                             foreach (DataGridViewRow dataGridViewRow in dataGridView1.Rows)
@@ -1025,6 +1032,51 @@ Globals.contagem_files++;
 
 
 
+
+
+
+
+
+
+
+
+
+        }
+
+        private void editarLinhaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+
+                Globals.contagem_files = dataGridView1.SelectedRows[0].Index;
+                // taking the index of the selected rows and removing/
+                DataGridViewRow newDataRow = dataGridView1.SelectedRows[0];
+
+
+                Formulario teste = new Formulario();
+              
+                    teste.CreateTextBox(Convert.ToInt32(newDataRow.Cells[0].Value),newDataRow.Cells[1].Value.ToString(), newDataRow.Cells[2].Value.ToString(), newDataRow.Cells[3].Value.ToString(), newDataRow.Cells[4].Value.ToString(), newDataRow.Cells[5].Value.ToString(), newDataRow.Cells[6].Value.ToString(), newDataRow.Cells[7].Value.ToString(), newDataRow.Cells[8].Value.ToString(), newDataRow.Cells[9].Value.ToString());
+             
+                
+                teste.ShowDialog();
+                //dtSales.Columns.Add("id", typeof(string));
+                //dtSales.Columns.Add("file", typeof(string));
+                //dtSales.Columns.Add("directory", typeof(string));
+                //dtSales.Columns.Add("size", typeof(string));
+                //dtSales.Columns.Add("hash", typeof(string));
+                //dtSales.Columns.Add("version", typeof(string));
+                //dtSales.Columns.Add("title", typeof(string));
+                //dtSales.Columns.Add("releasenote", typeof(string));
+                //dtSales.Columns.Add("link", typeof(string));
+                //dtSales.Columns.Add("shortversion", typeof(string));
+                //dtSales.Columns.Add("systemos", typeof(string));
+                //dtSales.Columns.Add("type", typeof(string));
+                //dtSales.Columns.Add("crtiticalupdate", typeof(string));
+            }
+            else
+            {  //optional    
+                MessageBox.Show("Selecione um arquivo");
+            }
 
 
 
