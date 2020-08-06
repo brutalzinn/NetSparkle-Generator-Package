@@ -21,6 +21,8 @@ using NetSparkleUpdater;
 using System.Web;
 using NetSparkleUpdater.AppCastHandlers;
 using System.Xml;
+using NetSparkleUpdater.Interfaces;
+using System.Xml.Linq;
 
 namespace Update.Maker
 {
@@ -353,7 +355,7 @@ namespace Update.Maker
 
         }
 
-  public static List<AppCastItem> items = new List<AppCastItem>();
+  public static List<AppCastItem> Items = new List<AppCastItem>();
         public  void CreateXML(string productName, string BaseUrl, bool PrefixVersion , string version, FileInfo fileInfo, string operationsystem, string changelogpath,string changlogurl)
         {
 
@@ -407,7 +409,7 @@ namespace Update.Maker
                     }
                 }
 
-                items.Add(item);
+                Items.Add(item);
               
                
                
@@ -424,7 +426,7 @@ namespace Update.Maker
     
        public void XmlGenerator()
         {
-            var appcastXmlDocument = XMLAppCast.GenerateAppCastXml(items, "Update List" );
+            var appcastXmlDocument = XMLAppCast.GenerateAppCastXml(Items, textBox1.Text );
 
             var appcastFileName = Path.Combine(Application.StartupPath + @"\output\", "appcast.xml");
 
@@ -550,128 +552,60 @@ var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["dir
      //       dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
         }
+        public IAppCastHandler AppCastHandler { get; set; }
+        private void ParseAppCast(string appcast)
+        {
+            const string itemNode = "item";
+            Items.Clear();
+            LogWriter _logWriter = new LogWriter();
+            XDocument doc = XDocument.Parse(appcast);
+            var rss = doc?.Element("rss");
+            var channel = rss?.Element("channel");
 
+            string Title = channel?.Element("title")?.Value ?? string.Empty;
+          string  Language = channel?.Element("language")?.Value ?? "en";
+
+            var items = doc.Descendants(itemNode);
+            foreach (var item in items)
+            {
+                var currentItem = AppCastItem.Parse("", "", "", item, _logWriter);
+                _logWriter.PrintMessage("Found an item in the app cast: version {0} ({1}) -- os = {2}",
+                    currentItem?.Version, currentItem?.ShortVersion, currentItem.OperatingSystemString);
+                Items.Add(currentItem);
+            }
+
+            // sort versions in reverse order
+            Items.Sort((item1, item2) => -1 * item1.CompareTo(item2));
+        }
         private void Carregar_list_Click(object sender, EventArgs e)
         {
 
 
-
-
-
-            IniFile ini = new IniFile();
-            ini.Load("update.survivalcrafters");
-           // int? i = 0;
-
-
-            foreach (IniSection section in ini.Sections)
-            {
-                string sectionName = "";
-                string keyName = "";
-                string keyValue = "";
-                foreach (IniKey key in section.Keys)
-                {
-                    sectionName = section.Name;
-                    keyName = key.Name;
-
-
-                    if (keyName != "total")
-                    {
-
-                        keyValue += key.Value + "|";
-                  
-
-                    }
-                    else
-                    {
-
-                        keyValue = "";
-                        Globals.contagem_files = -1;
-
-                    }
-
-
-                    
-                  
-
-                    // Do something ...
-                }
-
-                //               Console.WriteLine(sectionName + " " + keyValue);
-
-
-                // if(value.Length)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                char[] MyChar = { '|' };
-
-                // remove carcteres especiais
-             
            
-
-
-                string NewString = keyValue.TrimEnd(MyChar);
-               string[] ini_value = NewString.Split('|');
-                //  Console.WriteLine(partes[2]);
-                if (Globals.contagem_files >= 0)
-                {
-
-
-                    dtSales.Rows.Add(Globals.contagem_files, Path.GetFileName(ini_value[0]) , Application.StartupPath.Replace(@"\",@"/") + "/update/" +ini_value[0] ,ini_value[2], ini_value[1]);
-                    Debug.WriteLine("1" + ini_value[1]);
-                    Debug.WriteLine("2" + ini_value[2]);
-
-                }
-
-
-
-                // var diretorio = ini_value[0];
-                // var crc = ini_value[1];
-
-                //var size = ini_value[2];
-                Console.WriteLine(NewString);
-                Globals.contagem_files++;
-
-
-
-
-
-                //remover_Espacos_list();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          
+            var appcastFileName = Path.Combine(Application.StartupPath + @"\output\", "appcast.xml");
+            if (!File.Exists(appcastFileName))
+            {
+                return;
+               
             }
-         
+                string input =  File.ReadAllText(appcastFileName);
+            ParseAppCast(input);
 
+            foreach (AppCastItem item in Items)
+            {
+
+                dtSales.Rows.Add(Globals.contagem_files, item.Title, Application.StartupPath.Replace(@"\", @"/") + "/update/" + item.Title, item.UpdateSize, item.DownloadSignature, item.Version);
+
+                Globals.contagem_files++;
+            }
+
+
+
+
+           // dtSales.Rows.Add(Globals.contagem_files, Path.GetFileName(ini_value[0]), Application.StartupPath.Replace(@"\", @"/") + "/update/" + ini_value[0], ini_value[2], ini_value[1]);
         }
-       
+
 
         private void Item_Click(object sender, EventArgs e)
         {

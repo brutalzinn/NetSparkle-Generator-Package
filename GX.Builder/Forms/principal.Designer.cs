@@ -75,7 +75,6 @@
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // browseButton
@@ -141,20 +140,20 @@
             this.recalcularToolStripMenuItem});
             this.menu_options.Name = "menu_options";
             this.menu_options.ShowCheckMargin = true;
-            this.menu_options.Size = new System.Drawing.Size(167, 114);
+            this.menu_options.Size = new System.Drawing.Size(203, 136);
             this.menu_options.Opening += new System.ComponentModel.CancelEventHandler(this.Menu_options_Opening);
             // 
             // atualizar_list
             // 
             this.atualizar_list.Name = "atualizar_list";
-            this.atualizar_list.Size = new System.Drawing.Size(166, 22);
+            this.atualizar_list.Size = new System.Drawing.Size(202, 22);
             this.atualizar_list.Text = "Atualizar lista";
             this.atualizar_list.Click += new System.EventHandler(this.Atualizar_list_Click);
             // 
             // carregar_list
             // 
             this.carregar_list.Name = "carregar_list";
-            this.carregar_list.Size = new System.Drawing.Size(166, 22);
+            this.carregar_list.Size = new System.Drawing.Size(202, 22);
             this.carregar_list.Text = "Carregar lista";
             this.carregar_list.Click += new System.EventHandler(this.Carregar_list_Click);
             // 
@@ -167,7 +166,7 @@
             this.listarPastaToolStripMenuItem});
             this.arquivo_context.ForeColor = System.Drawing.Color.White;
             this.arquivo_context.Name = "arquivo_context";
-            this.arquivo_context.Size = new System.Drawing.Size(166, 22);
+            this.arquivo_context.Size = new System.Drawing.Size(202, 22);
             this.arquivo_context.Text = "Arquivo";
             // 
             // arquivo_context_add_menu
@@ -198,14 +197,14 @@
             this.clear_list.BackColor = System.Drawing.Color.Red;
             this.clear_list.ForeColor = System.Drawing.Color.White;
             this.clear_list.Name = "clear_list";
-            this.clear_list.Size = new System.Drawing.Size(166, 22);
+            this.clear_list.Size = new System.Drawing.Size(202, 22);
             this.clear_list.Text = "Limpar lista";
             this.clear_list.Click += new System.EventHandler(this.LimparListaToolStripMenuItem_Click);
             // 
             // recalcularToolStripMenuItem
             // 
             this.recalcularToolStripMenuItem.Name = "recalcularToolStripMenuItem";
-            this.recalcularToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.recalcularToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.recalcularToolStripMenuItem.Text = "Recalcular";
             this.recalcularToolStripMenuItem.Click += new System.EventHandler(this.RecalcularToolStripMenuItem_Click);
             // 
@@ -313,6 +312,8 @@
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.finder_fixo);
             this.tabPage1.Controls.Add(this.finder_file);
             this.tabPage1.Controls.Add(this.finder_directory);
@@ -402,8 +403,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -425,18 +424,18 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(49, 42);
+            this.textBox1.Location = new System.Drawing.Point(239, 300);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(392, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBox1.Size = new System.Drawing.Size(230, 20);
+            this.textBox1.TabIndex = 21;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 45);
+            this.label6.Location = new System.Drawing.Point(198, 303);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 1;
+            this.label6.TabIndex = 22;
             this.label6.Text = "label6";
             // 
             // principal
@@ -461,8 +460,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
