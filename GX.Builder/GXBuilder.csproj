@@ -173,6 +173,7 @@
     <Compile Include="Source files\crypt.cs" />
     <Compile Include="Source files\Globals.cs" />
     <Compile Include="Source files\hwid.cs" />
+    <Compile Include="Source files\Items.cs" />
     <Compile Include="Source files\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source files\Utils.cs" />
