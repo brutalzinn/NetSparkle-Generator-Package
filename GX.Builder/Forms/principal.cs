@@ -1078,12 +1078,30 @@ Globals.contagem_files++;
                 // taking the index of the selected rows and removing/
                 DataGridViewRow newDataRow = dataGridView1.SelectedRows[0];
 
+                Items items = new Items();
 
                 Formulario teste = new Formulario();
               
-                    teste.CreateTextBox(Convert.ToInt32(newDataRow.Cells[0].Value),newDataRow.Cells[1].Value.ToString(), newDataRow.Cells[2].Value.ToString(), newDataRow.Cells[3].Value.ToString(), newDataRow.Cells[4].Value.ToString(), newDataRow.Cells[5].Value.ToString(), newDataRow.Cells[6].Value.ToString(), newDataRow.Cells[7].Value.ToString(), newDataRow.Cells[8].Value.ToString(), newDataRow.Cells[9].Value.ToString(), newDataRow.Cells[10].Value.ToString(), newDataRow.Cells[11].Value.ToString(), Convert.ToBoolean(newDataRow.Cells[12].Value));
-             
-                
+                    
+                items.Id = Convert.ToInt32(newDataRow.Cells[1].Value);
+                items.Title = newDataRow.Cells[2].Value.ToString();
+                items.File = newDataRow.Cells[3].Value.ToString();
+                items.Releasenote = newDataRow.Cells[4].Value.ToString();
+                items.Link = newDataRow.Cells[5].Value.ToString();
+                items.Version = newDataRow.Cells[6].Value.ToString();
+                items.Shortversion = newDataRow.Cells[7].Value.ToString();
+                items.System = newDataRow.Cells[8].Value.ToString();
+                items.Type = newDataRow.Cells[9].Value.ToString();
+                items.Criticalupdate = newDataRow.Cells[10].Value.ToString();
+                items.Changelogpath = newDataRow.Cells[11].Value.ToString();
+                items.Changelogurl = newDataRow.Cells[12].Value.ToString();
+                items.Isprefixed = Convert.ToBoolean(newDataRow.Cells[13].Value);
+                items.AndroidVersion = newDataRow.Cells[14].Value.ToString();
+                items.AndroidVersionMaximum = newDataRow.Cells[15].Value.ToString();
+                items.AndroidVersionMinimum = newDataRow.Cells[16].Value.ToString();
+
+
+
                 teste.ShowDialog();
                 //dtSales.Columns.Add("id", typeof(string));
                 //dtSales.Columns.Add("file", typeof(string));
