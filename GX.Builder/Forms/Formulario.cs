@@ -24,22 +24,24 @@ namespace Update.Maker.Forms
 
         }
         public int CurrentItem { get; set; }
-        public void CreateTextBox(int id, string title, string file, string releasenote, string link, string version, string shortversion, string system, string type, string criticalupdate,string changelogpath, string changelogurl,bool isprefixed)
+        public void CreateTextBox(Items item)
         {
-            CurrentItem = id;
-            file_textbox.Text = file;
-            title_textbox.Text = title;
-            releasenote_textbox.Text = releasenote;
-            link_textbox.Text = link;
-            version_textbox.Text = version;
-            shortversion_textbox.Text = shortversion;
-            system_combobox.Text = system;
-            type_textbox.Text = type;
-            criticalupdate_textbox.Text = criticalupdate;
+            CurrentItem = item.Id;
+            file_textbox.Text = item.File;
+            title_textbox.Text = item.Title ;
+            releasenote_textbox.Text = item.Releasenote;
+            link_textbox.Text = item.Link;
+            version_textbox.Text = item.Version;
+            shortversion_textbox.Text = item.Shortversion ;
+            system_combobox.Text = item.System;
+            type_textbox.Text = item.System;
+            criticalupdate_textbox.Text = item.Criticalupdate;
 
-            changelogfile_textbox.Text = changelogpath;
-            changelog_url_textbox.Text = changelogurl;
-            PrefixVersion_checkbox.Checked = isprefixed;
+            changelogfile_textbox.Text = item.Changelogpath;
+            changelog_url_textbox.Text = item.Changelogurl;
+            PrefixVersion_checkbox.Checked = item.Isprefixed;
+           
+
         }
 
         private void button1_Click(object sender, EventArgs e)
