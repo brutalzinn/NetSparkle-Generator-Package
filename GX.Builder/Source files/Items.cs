@@ -28,73 +28,33 @@ namespace Update.Maker.Source_files
         private string _androidversionmaximum;
         private string _androidversionminimum;
 
-        public void CreateTextBox(int id, string title, string file, string releasenote, string link, string version, string shortversion, string system, string type, string criticalupdate, string changelogpath, string changelogurl, bool isprefixed)
+        public void CreateTextBox(int id, string title, string file, string releasenote, string link, string version, string shortversion, string system, string type, string criticalupdate, string changelogpath, string changelogurl, bool isprefixed,string androidversion, string androidversionminum,string androidmaximum)
         {
 
 
         }
         public int Id
         {
-
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-            }
+            get { return _id; }
+            set { _id = value; }
         }
 
         public string Title
         {
-
-            get
-            {
-
-                return _title;
-
-            }
-            set
-            {
-
-                _title = value;
-
-            }
-
-
+            get { return _title; }
+            set { _title = value; }
         }
 
         public string File
         {
-            get
-            {
-
-                return _file;
-            }
-            set
-            {
-
-                _file = value;
-            }
-
+            get { return _file; }
+            set { _file = value; }
         }
-        public string ReleaseNote
+        public string Releasenote
         {
 
-
-            get
-            {
-                return _releasenote;
-
-            }
-
-            set
-            {
-
-                _releasenote = value;
-            }
-
+            get { return _releasenote; }
+            set { _releasenote = value; }
 
         }
         public string Link
