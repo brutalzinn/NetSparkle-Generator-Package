@@ -305,7 +305,7 @@ namespace Update.Maker
 
 
 
-                        CreateXML(dataGridViewRow.Cells["file"].Value.ToString(), textBox1.Text, Convert.ToBoolean(dataGridViewRow.Cells["isprefixed"].Value), dataGridViewRow.Cells["version"].Value.ToString(), new FileInfo(dataGridViewRow.Cells["directory"].Value.ToString()), dataGridViewRow.Cells["systemos"].Value.ToString(), dataGridViewRow.Cells["changelogfilepath"].Value.ToString(), dataGridViewRow.Cells["changelogurl"].Value.ToString());
+                        CreateXML(dataGridViewRow.Cells["file"].Value.ToString(), dataGridViewRow.Cells["link"].Value.ToString(), Convert.ToBoolean(dataGridViewRow.Cells["isprefixed"].Value), dataGridViewRow.Cells["version"].Value.ToString(), new FileInfo(dataGridViewRow.Cells["directory"].Value.ToString()), dataGridViewRow.Cells["systemos"].Value.ToString(), dataGridViewRow.Cells["changelogfilepath"].Value.ToString(), dataGridViewRow.Cells["changelogurl"].Value.ToString());
                         //fileDifferent.WriteLine("[" + (Globals.contagem_files) + "]");
                         //fileDifferent.WriteLine("caminho=" + Convert.ToString(dataGridViewRow.Cells["diretorio"].Value).Replace(path_to_remove + "/update/", string.Empty));
                         //fileDifferent.WriteLine("crc32=" + Convert.ToString(dataGridViewRow.Cells["crc"].Value));
@@ -377,6 +377,7 @@ namespace Update.Maker
                 var changelogFileName = productVersion + ".md";
                 var changelogPath = Path.Combine(changelogpath, changelogFileName);
                 var hasChangelogForFile = usesChangelogs && File.Exists(changelogPath);
+                var hasChangeLogForLink = !string.IsNullOrWhiteSpace(changlogurl);
                 var changelogSignature = "";
 
                 if (hasChangelogForFile)
@@ -398,12 +399,12 @@ namespace Update.Maker
                     MIMEType = MimeTypes.GetMimeType(fileInfo.Name)
                 };
 
-                if (hasChangelogForFile)
+                if (hasChangelogForFile || hasChangeLogForLink)
                 {
                     if (!string.IsNullOrWhiteSpace(changlogurl))
                     {
                         item.ReleaseNotesSignature = changelogSignature;
-                        item.ReleaseNotesLink = changlogurl + changelogFileName;
+                        item.ReleaseNotesLink = changlogurl;
                     }
                     else
                     {

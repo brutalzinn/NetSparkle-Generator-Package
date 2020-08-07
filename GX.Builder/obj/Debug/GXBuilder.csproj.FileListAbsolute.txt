@@ -175,3 +175,4 @@ C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerat
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\Update Maker.exe
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\Update Maker.pdb
 C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\Update.Maker.Forms.Formulario.resources
+C:\Users\Roberto\Documents\GeneratorLauncherSurvivalCraftersUPDATE\UpdateGenerator\GX.Builder\obj\Debug\GXBuilder.csprojAssemblyReference.cache

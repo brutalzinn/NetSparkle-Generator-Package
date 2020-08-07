@@ -54,6 +54,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.PrefixVersion_checkbox = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.androidversion_textbox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.androidmaximum_textbox = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.androidminimum_textbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -210,7 +216,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 452);
+            this.button1.Location = new System.Drawing.Point(12, 558);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 52);
             this.button1.TabIndex = 19;
@@ -220,7 +226,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(235, 452);
+            this.button2.Location = new System.Drawing.Point(235, 558);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 52);
             this.button2.TabIndex = 20;
@@ -262,7 +268,7 @@
             // PrefixVersion_checkbox
             // 
             this.PrefixVersion_checkbox.AutoSize = true;
-            this.PrefixVersion_checkbox.Location = new System.Drawing.Point(121, 418);
+            this.PrefixVersion_checkbox.Location = new System.Drawing.Point(125, 525);
             this.PrefixVersion_checkbox.Name = "PrefixVersion_checkbox";
             this.PrefixVersion_checkbox.Size = new System.Drawing.Size(140, 17);
             this.PrefixVersion_checkbox.TabIndex = 25;
@@ -272,17 +278,71 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(32, 419);
+            this.label11.Location = new System.Drawing.Point(36, 526);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(68, 13);
             this.label11.TabIndex = 26;
             this.label11.Text = "PrefixVersion";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(15, 417);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(84, 13);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "Android Version:";
+            // 
+            // androidversion_textbox
+            // 
+            this.androidversion_textbox.Location = new System.Drawing.Point(104, 414);
+            this.androidversion_textbox.Name = "androidversion_textbox";
+            this.androidversion_textbox.Size = new System.Drawing.Size(211, 20);
+            this.androidversion_textbox.TabIndex = 27;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(5, 453);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(93, 13);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Android Maximum:";
+            // 
+            // androidmaximum_textbox
+            // 
+            this.androidmaximum_textbox.Location = new System.Drawing.Point(104, 450);
+            this.androidmaximum_textbox.Name = "androidmaximum_textbox";
+            this.androidmaximum_textbox.Size = new System.Drawing.Size(211, 20);
+            this.androidmaximum_textbox.TabIndex = 29;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(14, 490);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 13);
+            this.label14.TabIndex = 32;
+            this.label14.Text = "Android Minimum:";
+            // 
+            // androidminimum_textbox
+            // 
+            this.androidminimum_textbox.Location = new System.Drawing.Point(105, 487);
+            this.androidminimum_textbox.Name = "androidminimum_textbox";
+            this.androidminimum_textbox.Size = new System.Drawing.Size(211, 20);
+            this.androidminimum_textbox.TabIndex = 31;
+            // 
             // Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 536);
+            this.ClientSize = new System.Drawing.Size(343, 622);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.androidminimum_textbox);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.androidmaximum_textbox);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.androidversion_textbox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.PrefixVersion_checkbox);
             this.Controls.Add(this.label10);
@@ -346,5 +406,11 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox PrefixVersion_checkbox;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox androidversion_textbox;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox androidmaximum_textbox;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox androidminimum_textbox;
     }
 }
