@@ -223,7 +223,7 @@ namespace Update.Maker
                         Debug.WriteLine("OLD : " + result[0]);
                         //Debug.WriteLine("DEBUG: " + Application.StartupPath);
                         //string result_teste = result[0].Replace((Application.StartupPath + @"\update\").Replace(@"\",@"/"),"");
-                        dtSales.Rows.Add(Globals.contagem_files++, Path.GetFileName(result[0]), result[0], result[2], result[1],"1.0.0.0", Path.GetFileName(result[0]),"","", "", "" ,"", "", "", "", false);
+                        dtSales.Rows.Add(Globals.contagem_files++, Path.GetFileName(result[0]), result[0], result[2], result[1],"1.0.0.0","","", "", "" ,"", "", "","", false);
 
 
                     }
@@ -305,7 +305,7 @@ namespace Update.Maker
 
 
 
-                        CreateXML(dataGridViewRow.Cells["file"].Value.ToString(), dataGridViewRow.Cells["link"].Value.ToString(), Convert.ToBoolean(dataGridViewRow.Cells["isprefixed"].Value), dataGridViewRow.Cells["version"].Value.ToString(), new FileInfo(dataGridViewRow.Cells["directory"].Value.ToString()), dataGridViewRow.Cells["systemos"].Value.ToString(), dataGridViewRow.Cells["changelogfilepath"].Value.ToString(), dataGridViewRow.Cells["changelogurl"].Value.ToString());
+                        CreateXML(dataGridViewRow.Cells["file"].Value.ToString(), dataGridViewRow.Cells["link"].Value.ToString(), Convert.ToBoolean(dataGridViewRow.Cells["isprefixed"].Value), dataGridViewRow.Cells["version"].Value.ToString(), new FileInfo(dataGridViewRow.Cells["directory"].Value.ToString()), dataGridViewRow.Cells["systemos"].Value.ToString(), dataGridViewRow.Cells["changelogfilepath"].Value.ToString(), dataGridViewRow.Cells["changelogurl"].Value.ToString(), dataGridViewRow.Cells["androidversion"].Value.ToString(), dataGridViewRow.Cells["androidversionminimum"].Value.ToString(), dataGridViewRow.Cells["androidversionmaximum"].Value.ToString());
                         //fileDifferent.WriteLine("[" + (Globals.contagem_files) + "]");
                         //fileDifferent.WriteLine("caminho=" + Convert.ToString(dataGridViewRow.Cells["diretorio"].Value).Replace(path_to_remove + "/update/", string.Empty));
                         //fileDifferent.WriteLine("crc32=" + Convert.ToString(dataGridViewRow.Cells["crc"].Value));
@@ -359,14 +359,14 @@ namespace Update.Maker
 
   public static List<AppCastItem> Items = new List<AppCastItem>();
         public static List<AppCastItem> Items_to_write= new List<AppCastItem>();
-        public  void CreateXML(string productName, string BaseUrl, bool PrefixVersion , string version, FileInfo fileInfo, string operationsystem, string changelogpath,string changlogurl)
+        public  void CreateXML(string productName, string BaseUrl, bool PrefixVersion , string version, FileInfo fileInfo, string operationsystem, string changelogpath,string changlogurl, string androidversion, string androidversionminum,string androidversionmaximum)
         {
            
 
             try
             {
 
-
+                var isAndroidVersion = !string.IsNullOrWhiteSpace(androidversion) || !string.IsNullOrWhiteSpace(androidversionminum) || !string.IsNullOrWhiteSpace(androidversionmaximum);
                 var productVersion = version;
                 var usesChangelogs = !string.IsNullOrWhiteSpace(changelogpath) && Directory.Exists(changelogpath);
                
@@ -398,7 +398,26 @@ namespace Update.Maker
                     OperatingSystemString = operationsystem,
                     MIMEType = MimeTypes.GetMimeType(fileInfo.Name)
                 };
+                if (isAndroidVersion)
+                {
+                    if (!string.IsNullOrWhiteSpace(androidversion))
+                    {
+ item.AndroidVersion = androidversion;
+                    }
 
+                    if (!string.IsNullOrWhiteSpace(androidversionmaximum))
+                    {
+                        item.AndroidVersionMaximum = androidversionmaximum;
+                    }
+                    if (!string.IsNullOrWhiteSpace(androidversionminum))
+                    {
+                        item.AndroidVersionMinimum = androidversionminum;
+                    }
+
+
+
+             
+                }
                 if (hasChangelogForFile || hasChangeLogForLink)
                 {
                     if (!string.IsNullOrWhiteSpace(changlogurl))
@@ -510,7 +529,6 @@ namespace Update.Maker
             dtSales.Columns.Add("size", typeof(string));
             dtSales.Columns.Add("hash", typeof(string));
             dtSales.Columns.Add("version", typeof(string));
-            dtSales.Columns.Add("title", typeof(string));
             dtSales.Columns.Add("releasenote", typeof(string));
             dtSales.Columns.Add("link", typeof(string));
             dtSales.Columns.Add("shortversion", typeof(string));
@@ -521,6 +539,9 @@ namespace Update.Maker
             dtSales.Columns.Add("changelogfilepath", typeof(string));
             dtSales.Columns.Add("changelogurl", typeof(string));
             dtSales.Columns.Add("isprefixed", typeof(string));
+            dtSales.Columns.Add("androidversion", typeof(string));
+            dtSales.Columns.Add("androidversionminimum", typeof(string));
+            dtSales.Columns.Add("androidversionmaximum", typeof(string));
             dataGridView1.DataSource = dtSales;
         }
         private void Button1_Click_1(object sender, EventArgs e)
@@ -1083,25 +1104,24 @@ Globals.contagem_files++;
                 Formulario teste = new Formulario();
               
                     
-                items.Id = Convert.ToInt32(newDataRow.Cells[1].Value);
-                items.Title = newDataRow.Cells[2].Value.ToString();
-                items.File = newDataRow.Cells[3].Value.ToString();
-                items.Releasenote = newDataRow.Cells[4].Value.ToString();
-                items.Link = newDataRow.Cells[5].Value.ToString();
-                items.Version = newDataRow.Cells[6].Value.ToString();
-                items.Shortversion = newDataRow.Cells[7].Value.ToString();
-                items.System = newDataRow.Cells[8].Value.ToString();
-                items.Type = newDataRow.Cells[9].Value.ToString();
-                items.Criticalupdate = newDataRow.Cells[10].Value.ToString();
-                items.Changelogpath = newDataRow.Cells[11].Value.ToString();
-                items.Changelogurl = newDataRow.Cells[12].Value.ToString();
-                items.Isprefixed = Convert.ToBoolean(newDataRow.Cells[13].Value);
-                items.AndroidVersion = newDataRow.Cells[14].Value.ToString();
-                items.AndroidVersionMaximum = newDataRow.Cells[15].Value.ToString();
+                items.Id = Convert.ToInt32(newDataRow.Cells[0].Value);
+                items.File = newDataRow.Cells[1].Value.ToString();
+                items.Releasenote = newDataRow.Cells[6].Value.ToString();
+                items.Link = newDataRow.Cells[7].Value.ToString();
+                items.Version = newDataRow.Cells[5].Value.ToString();
+                items.Shortversion = newDataRow.Cells[8].Value.ToString();
+                items.System = newDataRow.Cells[9].Value.ToString();
+                items.Type = newDataRow.Cells[10].Value.ToString();
+                items.Criticalupdate = newDataRow.Cells[11].Value.ToString();
+                items.Changelogpath = newDataRow.Cells[12].Value.ToString();
+                items.Changelogurl = newDataRow.Cells[13].Value.ToString();
+                items.Isprefixed = Convert.ToBoolean(newDataRow.Cells[14].Value);
+                items.AndroidVersion = newDataRow.Cells[15].Value.ToString();
+                items.AndroidVersionMaximum = newDataRow.Cells[17].Value.ToString();
                 items.AndroidVersionMinimum = newDataRow.Cells[16].Value.ToString();
 
 
-
+                teste.CreateTextBox(items);
                 teste.ShowDialog();
                 //dtSales.Columns.Add("id", typeof(string));
                 //dtSales.Columns.Add("file", typeof(string));

@@ -27,8 +27,8 @@ namespace Update.Maker.Forms
         public void CreateTextBox(Items item)
         {
             CurrentItem = item.Id;
+
             file_textbox.Text = item.File;
-            title_textbox.Text = item.Title ;
             releasenote_textbox.Text = item.Releasenote;
             link_textbox.Text = item.Link;
             version_textbox.Text = item.Version;
@@ -40,7 +40,9 @@ namespace Update.Maker.Forms
             changelogfile_textbox.Text = item.Changelogpath;
             changelog_url_textbox.Text = item.Changelogurl;
             PrefixVersion_checkbox.Checked = item.Isprefixed;
-           
+            androidversion_textbox.Text = item.AndroidVersion;
+            androidmaximum_textbox.Text = item.AndroidVersionMaximum;
+            androidminimum_textbox.Text = item.AndroidVersionMinimum;
 
         }
 
@@ -54,28 +56,31 @@ namespace Update.Maker.Forms
                 {
 
                    
-                 newDataRow.Cells[2].Value = file_textbox.Text;
+            ///     newDataRow.Cells[2].Value = Path.file_textbox.Text;
 
-                    newDataRow.Cells[1].Value = title_textbox.Text;
+                    newDataRow.Cells[1].Value = file_textbox.Text;
 
-                    newDataRow.Cells[3].Value = releasenote_textbox.Text;
+                    newDataRow.Cells[6].Value = releasenote_textbox.Text;
 
-                    newDataRow.Cells[4].Value = link_textbox.Text;
+                    newDataRow.Cells[7].Value = link_textbox.Text;
 
 
                     newDataRow.Cells[5].Value = version_textbox.Text;
 
-                    newDataRow.Cells[6].Value = shortversion_textbox.Text;
+                    newDataRow.Cells[8].Value = shortversion_textbox.Text;
 
 
-                        newDataRow.Cells[7].Value = system_combobox.Text;
+                        newDataRow.Cells[9].Value = system_combobox.Text;
 
-                    newDataRow.Cells[8].Value = type_textbox.Text;
+                    newDataRow.Cells[10].Value = type_textbox.Text;
 
-                    newDataRow.Cells[9].Value = criticalupdate_textbox.Text;
-                    newDataRow.Cells[10].Value = changelogfile_textbox.Text;
                     newDataRow.Cells[11].Value = criticalupdate_textbox.Text;
-                    newDataRow.Cells[12].Value = PrefixVersion_checkbox.Enabled;
+                    newDataRow.Cells[12].Value = changelogfile_textbox.Text;
+            
+                    newDataRow.Cells[14].Value = PrefixVersion_checkbox.Enabled;
+                    newDataRow.Cells[15].Value = androidversion_textbox.Text;
+                    newDataRow.Cells[16].Value = androidminimum_textbox.Text;
+                    newDataRow.Cells[17].Value = androidmaximum_textbox.Text;
                     break;
                 }
 

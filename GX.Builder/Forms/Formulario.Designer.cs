@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.title_textbox = new System.Windows.Forms.TextBox();
+            this.file_textbox = new System.Windows.Forms.TextBox();
             this.releasenote_textbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.link_textbox = new System.Windows.Forms.TextBox();
@@ -44,7 +43,6 @@
             this.type_textbox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.system_combobox = new System.Windows.Forms.ComboBox();
-            this.file_textbox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -62,21 +60,12 @@
             this.androidminimum_textbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label1
+            // file_textbox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(54, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Title";
-            // 
-            // title_textbox
-            // 
-            this.title_textbox.Location = new System.Drawing.Point(105, 52);
-            this.title_textbox.Name = "title_textbox";
-            this.title_textbox.Size = new System.Drawing.Size(211, 20);
-            this.title_textbox.TabIndex = 1;
+            this.file_textbox.Location = new System.Drawing.Point(105, 52);
+            this.file_textbox.Name = "file_textbox";
+            this.file_textbox.Size = new System.Drawing.Size(211, 20);
+            this.file_textbox.TabIndex = 1;
             // 
             // releasenote_textbox
             // 
@@ -198,17 +187,10 @@
             this.system_combobox.Size = new System.Drawing.Size(206, 21);
             this.system_combobox.TabIndex = 16;
             // 
-            // file_textbox
-            // 
-            this.file_textbox.Location = new System.Drawing.Point(109, 25);
-            this.file_textbox.Name = "file_textbox";
-            this.file_textbox.Size = new System.Drawing.Size(206, 20);
-            this.file_textbox.TabIndex = 17;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(54, 28);
+            this.label9.Location = new System.Drawing.Point(54, 52);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(26, 13);
             this.label9.TabIndex = 18;
@@ -352,7 +334,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.file_textbox);
             this.Controls.Add(this.system_combobox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.type_textbox);
@@ -367,8 +348,7 @@
             this.Controls.Add(this.link_textbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.releasenote_textbox);
-            this.Controls.Add(this.title_textbox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.file_textbox);
             this.Name = "Formulario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario";
@@ -379,9 +359,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox title_textbox;
+        private System.Windows.Forms.TextBox file_textbox;
         private System.Windows.Forms.TextBox releasenote_textbox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox link_textbox;
@@ -396,7 +374,6 @@
         private System.Windows.Forms.TextBox type_textbox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox system_combobox;
-        private System.Windows.Forms.TextBox file_textbox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
