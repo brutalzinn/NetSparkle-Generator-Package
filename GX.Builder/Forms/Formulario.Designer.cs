@@ -58,11 +58,16 @@
             this.androidmaximum_textbox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.androidminimum_textbox = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.directory_textbox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // file_textbox
             // 
-            this.file_textbox.Location = new System.Drawing.Point(105, 52);
+            this.file_textbox.Location = new System.Drawing.Point(105, 30);
             this.file_textbox.Name = "file_textbox";
             this.file_textbox.Size = new System.Drawing.Size(211, 20);
             this.file_textbox.TabIndex = 1;
@@ -190,7 +195,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(54, 52);
+            this.label9.Location = new System.Drawing.Point(54, 33);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(26, 13);
             this.label9.TabIndex = 18;
@@ -198,7 +203,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 558);
+            this.button1.Location = new System.Drawing.Point(12, 599);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 52);
             this.button1.TabIndex = 19;
@@ -208,7 +213,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(235, 558);
+            this.button2.Location = new System.Drawing.Point(235, 599);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 52);
             this.button2.TabIndex = 20;
@@ -250,7 +255,7 @@
             // PrefixVersion_checkbox
             // 
             this.PrefixVersion_checkbox.AutoSize = true;
-            this.PrefixVersion_checkbox.Location = new System.Drawing.Point(125, 525);
+            this.PrefixVersion_checkbox.Location = new System.Drawing.Point(143, 568);
             this.PrefixVersion_checkbox.Name = "PrefixVersion_checkbox";
             this.PrefixVersion_checkbox.Size = new System.Drawing.Size(140, 17);
             this.PrefixVersion_checkbox.TabIndex = 25;
@@ -260,7 +265,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(36, 526);
+            this.label11.Location = new System.Drawing.Point(54, 569);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(68, 13);
             this.label11.TabIndex = 26;
@@ -314,11 +319,54 @@
             this.androidminimum_textbox.Size = new System.Drawing.Size(211, 20);
             this.androidminimum_textbox.TabIndex = 31;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(114, 599);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(115, 48);
+            this.button3.TabIndex = 33;
+            this.button3.Text = "Selecionar arquivo";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // directory_textbox
+            // 
+            this.directory_textbox.Location = new System.Drawing.Point(105, 52);
+            this.directory_textbox.Name = "directory_textbox";
+            this.directory_textbox.Size = new System.Drawing.Size(206, 20);
+            this.directory_textbox.TabIndex = 34;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(37, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Directory:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(22, 541);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 13);
+            this.label15.TabIndex = 36;
+            this.label15.Text = "label15";
+            // 
             // Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 622);
+            this.ClientSize = new System.Drawing.Size(343, 663);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.directory_textbox);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.androidminimum_textbox);
             this.Controls.Add(this.label13);
@@ -389,5 +437,10 @@
         private System.Windows.Forms.TextBox androidmaximum_textbox;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox androidminimum_textbox;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox directory_textbox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label15;
     }
 }

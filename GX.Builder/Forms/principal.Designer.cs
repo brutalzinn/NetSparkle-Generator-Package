@@ -42,6 +42,7 @@
             this.menu_options = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.atualizar_list = new System.Windows.Forms.ToolStripMenuItem();
             this.carregar_list = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarLinhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arquivo_context = new System.Windows.Forms.ToolStripMenuItem();
             this.arquivo_context_add_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.removearquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,9 +52,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.log_list = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.desenvolvidoPorRobertinhonetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +68,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.editarLinhaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menu_options.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -80,7 +77,7 @@
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(94, 294);
+            this.browseButton.Location = new System.Drawing.Point(8, 298);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(98, 31);
             this.browseButton.TabIndex = 1;
@@ -98,7 +95,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(94, 341);
+            this.saveButton.Location = new System.Drawing.Point(8, 335);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(98, 35);
             this.saveButton.TabIndex = 3;
@@ -159,6 +156,13 @@
             this.carregar_list.Text = "Carregar lista";
             this.carregar_list.Click += new System.EventHandler(this.Carregar_list_Click);
             // 
+            // editarLinhaToolStripMenuItem
+            // 
+            this.editarLinhaToolStripMenuItem.Name = "editarLinhaToolStripMenuItem";
+            this.editarLinhaToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.editarLinhaToolStripMenuItem.Text = "Editar linha";
+            this.editarLinhaToolStripMenuItem.Click += new System.EventHandler(this.editarLinhaToolStripMenuItem_Click);
+            // 
             // arquivo_context
             // 
             this.arquivo_context.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -213,11 +217,11 @@
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.Location = new System.Drawing.Point(94, 392);
+            this.button1.Location = new System.Drawing.Point(8, 383);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 31);
             this.button1.TabIndex = 8;
-            this.button1.Text = "GERAR";
+            this.button1.Text = "REGENERATE";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
@@ -237,33 +241,6 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 303);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "ETAPA - 1";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 401);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "ETAPA - 3";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 352);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "ETAPA - 2";
             // 
             // label5
             // 
@@ -323,11 +300,8 @@
             this.tabPage1.Controls.Add(this.textBoxSearch);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.saveButton);
             this.tabPage1.Controls.Add(this.log_list);
@@ -440,13 +414,6 @@
             this.radioButton1.Text = "radioButton1";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // editarLinhaToolStripMenuItem
-            // 
-            this.editarLinhaToolStripMenuItem.Name = "editarLinhaToolStripMenuItem";
-            this.editarLinhaToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.editarLinhaToolStripMenuItem.Text = "Editar linha";
-            this.editarLinhaToolStripMenuItem.Click += new System.EventHandler(this.editarLinhaToolStripMenuItem_Click);
-            // 
             // principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,9 +459,6 @@
         private System.Windows.Forms.ToolStripMenuItem removearquivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clear_list;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem desenvolvidoPorRobertinhonetToolStripMenuItem;

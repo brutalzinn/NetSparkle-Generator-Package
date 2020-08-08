@@ -547,31 +547,25 @@ namespace Update.Maker
         private void Button1_Click_1(object sender, EventArgs e)
         {
 
-            log(Globals.code.GERENCIADOR, "Compactando arquivos para a atualização.");
-            var file_ini = new List<string>() { Application.StartupPath +@"\" + Globals.nome_arquivo };
-            RarFiles(Application.StartupPath + @"\update\" + Globals.nome_arquivo + ".rar", file_ini);
-
-      
-
-            foreach (DataGridViewRow dataGridViewRow in dataGridView1.Rows)
+            var appcastFileName = Path.Combine(Application.StartupPath + @"\output\", "appcast.xml");
+            if (_signatureManager.KeysExist())
             {
+                var appcastFile = new FileInfo(appcastFileName);
+                var signatureFile = appcastFileName + ".signature";
+                var signature = _signatureManager.GetSignatureForFile(appcastFile);
 
+                var result = _signatureManager.VerifySignature(appcastFile, signature);
 
-
-
-            if(Convert.ToString(dataGridViewRow.Cells["diretorio"].Value) != "")
+                if (result)
                 {
-                  if(  File.Exists(Convert.ToString(dataGridViewRow.Cells["diretorio"].Value) + ".rar") == false ){
 
-var files_rar = new List<string>() { Convert.ToString(dataGridViewRow.Cells["diretorio"].Value)  };
-               RarFiles(Convert.ToString(dataGridViewRow.Cells["diretorio"].Value)  + ".rar" , files_rar);
-
-
-
-                    }
- 
+                    File.WriteAllText(signatureFile, signature);
+                    Console.WriteLine($"Wrote {signatureFile}", Color.Green);
                 }
-              
+                else
+                {
+                    Console.WriteLine($"Failed to verify {signatureFile}", Color.Red);
+                }
 
             }
 
@@ -1105,6 +1099,7 @@ Globals.contagem_files++;
               
                     
                 items.Id = Convert.ToInt32(newDataRow.Cells[0].Value);
+                items.Directory = newDataRow.Cells[2].Value.ToString();
                 items.File = newDataRow.Cells[1].Value.ToString();
                 items.Releasenote = newDataRow.Cells[6].Value.ToString();
                 items.Link = newDataRow.Cells[7].Value.ToString();

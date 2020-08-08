@@ -20,6 +20,7 @@ namespace Update.Maker.Source_files
         private string _shortversion;
         private string _system;
         private string _type;
+        private string _directory;
         private string _criticalupdate;
         private string _changelogpath;
         private string _changelogurl;
@@ -122,7 +123,11 @@ namespace Update.Maker.Source_files
             get { return _androidversionminimum; }
             set { _androidversionminimum = value; }
         }
-
+        public string Directory
+        {
+            get { return _directory; }
+            set { _directory = value; }
+        }
 
 
     }
