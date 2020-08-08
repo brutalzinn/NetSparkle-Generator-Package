@@ -387,6 +387,7 @@ namespace Update.Maker
                 //
                 var item = new AppCastItem()
                 {
+                  
                     Title = itemTitle,
                     DownloadLink = remoteUpdateFile,
                     Version = productVersion,
@@ -547,26 +548,30 @@ namespace Update.Maker
         private void Button1_Click_1(object sender, EventArgs e)
         {
 
-            var appcastFileName = Path.Combine(Application.StartupPath + @"\output\", "appcast.xml");
-            if (_signatureManager.KeysExist())
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                var appcastFile = new FileInfo(appcastFileName);
-                var signatureFile = appcastFileName + ".signature";
-                var signature = _signatureManager.GetSignatureForFile(appcastFile);
-
-                var result = _signatureManager.VerifySignature(appcastFile, signature);
-
-                if (result)
+                var appcastFileName = Path.Combine(openFileDialog1.FileName);
+                if (_signatureManager.KeysExist())
                 {
+                    var appcastFile = new FileInfo(appcastFileName);
+                    var signatureFile = appcastFileName + ".signature";
+                    var signature = _signatureManager.GetSignatureForFile(appcastFile);
 
-                    File.WriteAllText(signatureFile, signature);
-                    Console.WriteLine($"Wrote {signatureFile}", Color.Green);
-                }
-                else
-                {
-                    Console.WriteLine($"Failed to verify {signatureFile}", Color.Red);
-                }
+                    var result = _signatureManager.VerifySignature(appcastFile, signature);
 
+                    if (result)
+                    {
+
+                        File.WriteAllText(signatureFile, signature);
+                        Console.WriteLine($"Wrote {signatureFile}", Color.Green);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Failed to verify {signatureFile}", Color.Red);
+                    }
+
+                }
             }
 
 
@@ -643,8 +648,9 @@ namespace Update.Maker
 
             foreach (AppCastItem item in Items)
             {
-
-                dtSales.Rows.Add(Globals.contagem_files, item.Title, Application.StartupPath.Replace(@"\", @"/") + "/update/" + item.Title, item.UpdateSize, item.DownloadSignature, item.Version);
+             
+                string app_name = item.Title.Split(' ').First();
+                dtSales.Rows.Add(Globals.contagem_files, app_name, Application.StartupPath.Replace(@"\", @"/") + "/update/" + app_name, item.UpdateSize, item.DownloadSignature, item.Version, "", item.DownloadLink, "", item.OperatingSystemString, item.MIMEType, item.IsCriticalUpdate, item.ReleaseNotesLink, "", false, item.AndroidVersion, item.AndroidVersionMinimum,item.AndroidVersionMaximum) ;
 
                 Globals.contagem_files++;
             }
