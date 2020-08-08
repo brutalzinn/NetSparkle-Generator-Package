@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -101,6 +102,7 @@ namespace Update.Maker.Forms
                  NewSignature = new SignatureManager().GetSignatureForFile(openFileDialog1.FileName);
                 directory_textbox.Text = openFileDialog1.FileName;
                 label15.Text = "New signature: " + NewSignature;
+                file_textbox.Text = Path.GetFileName(openFileDialog1.FileName);
             }
         }
 
