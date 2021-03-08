@@ -1,2 +1,1 @@
-# generator-survivalcrafters-update-crc
- Gerador de atualizações para meu servidor de minecraft
+Small generator with ui for netsparkle nuget package
